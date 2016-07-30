@@ -10,11 +10,12 @@ class World():
 		self.height = y
 		#attenzione: alla heightmap bisogna accedere così:
 		#self.heightmap[y][x] e non il contrario!!!
-		self.heightmap = self.create_bit_list(8, 0.8, 2.6)
+		self.heightmap = self.create_heightmap(8, 0.8, 2.6)
+		self.tempmap = []
 		self.civs = {}
 		self.img = self.create_image()
 
-	def create_bit_list(self, octave=2, persistence=0.5, lacunarity=2.0):
+	def create_heightmap(self, octave=2, persistence=0.5, lacunarity=2.0):
 		random_start = random.random()*1134.72864
 		l = []
 		for y in range(height):
@@ -25,6 +26,8 @@ class World():
 				l1.append(value)
 			l.append(l1)
 		return l
+
+	def create_tempmap(
 
 	def create_image(self):
 		img = Image.new( 'RGB', (self.width, self.height), "black") # create a new black image
