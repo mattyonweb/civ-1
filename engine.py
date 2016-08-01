@@ -5,10 +5,12 @@ punctuation = ",.;:!?"
 class Core:
 
 	def __init__(self):
+		consonants = "bcdfghjklmnpqrstvwxyzçæðñþ"
+		vowels_and_special = "aeiouøöÿăā"
 		self.phonetics = {
-			"C" : "bcfgmpt",
-			"R" : "rl",
-			"V" : "eaiou" }
+			"C" : random.sample(consonants, 7),
+			"R" : random.sample(consonants,2),
+			"V" : random.sample(vowels_and_special, 5) }
 		self.freq = {}
 		self.create_freq()
 		self.types = ["CV", "RV", "CRV"]
