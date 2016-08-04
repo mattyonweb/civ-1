@@ -65,4 +65,29 @@ In GEB si parla della geometria e del fatto che alcuni termini assumono un signi
 12. I fiumi
 Nel world gen mi mancano i fiumi.
 
+13. Religioneù
 
+Dio esiste:
+	- Deismo: credere che esiste un dio non antropomorfo e assoluto e trascendente che non tocca gli uomini.
+	- Panteismo: dio avvolge qualsiasi cosa nel nostro mondo, anche gli oggetti
+	- Monoteismo
+	- Enoteismo: formalmente esistono diversi dei ma solo uno viene privilegiato.
+	- Politeismo
+
+Dio non esiste:
+	- Animismo: credere l'esistenza di un anima o forza vitale in tutte le cose.
+	- Agnosticismo: non sapere se dio esiste o no ma farsene una ragione
+	- Ateismo: credere che dio non esiste
+
+14. Idea per definire alcuni punteggi dei linguaggi
+Si potrebbe un valore di comprensibilità di un linguaggio confrontandolo con tutti gli altri linguaggi del mondo: più è simile a un numero maggiore di altri linguaggi, più sarà comprensibile e, geneticamente, sopravviverà.
+
+15. Esempio di resume
+I Grnstrd sono una piccola (< 50 abitanti) civiltà stanziata nei pressi del lago Michigan. La religione più diffusa è quella [animista politeista ecc], e in particolare vengono venerati gli dei [lista dei] / Non vi sono religioni diffuse [æteismo]
+
+16. Come dare un nome a territori geografici
+	- Crea mappa di temperature e precipitazioni
+	- Dividi la mappa in biomi
+	- Per ogni zona chiusa composta solo da un bioma, genera un nome
+es: se il bioma è montagna-fredda-secca, allora si dovrà scegliere tra [la montagna|monte|picco][freddo/a|gelido/a|congelato/a] di [nome a caso]
+Il problema con questo approccio è che ci possono essere zone estremamente grandi che ricadono sotto un unico nome 

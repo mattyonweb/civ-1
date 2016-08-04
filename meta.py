@@ -1,12 +1,17 @@
-import world, civilization
+import world as word
+import civilization, cmd
 
 height = 400
-width = 750
+width = 400
 
-world = world.World(width, height)
-for _ in range(15):
-	civ = civilization.Civilta(world)
+def show_world():
+	world = word.World(width, height)
+	for _ in range(5):
+		civ = civilization.Civilta(world)
 
-world.save_images()
-civilization.Civilta.print_all_informations()
-world.show_image()
+	world.nearest_civ_distance()
+	civilization.Civilta.print_all_informations()
+	world.show_image()
+
+		
+show_world()
