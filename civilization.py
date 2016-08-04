@@ -6,8 +6,10 @@ class Civilta():
 	def __init__(self, world):
 		self.x = 0
 		self.y = 0
+
 		self.lang = engine.Language()
 		self.nome = self.lang.generate_word()
+		
 		self.population = random.randint(40, 60)
 		self.citizens = self.create_citizens()
 
@@ -19,33 +21,38 @@ class Civilta():
 		
 		Civilta.civs.append(self)
 
+	def __str__(self):
+		return self.nome
+
 	def print_informations(self):
 		print("Nome:", self.nome)
 		print("Coordinate:", (self.x, self.y))
+		print("Civiltà più vicina:", str(self.nearest[1]), self.nearest[0])
 		print("Popolazione:", self.population)
-		for citizen in self.citizens:
-			print(citizen)
-		print(self.nearest)
-		self.print_resume()
-		
-	def print_resume(self):
-		print(self.resume_biome())
-		print(self.religion_resume)
+		for c in random.sample(self.citizens, 5):
+			print(c)
+		print("Bioma:", self.resume_biome())
+		print("Religione:", self.religion_resume)
 
+		
 	@staticmethod
 	def print_all_informations():
+		''' Stampa le informazioni di TUTTE le civ, con un separatore '''
 		for civ in Civilta.civs:
 			civ.print_informations()
 			print("------------")
 
 	def create_citizens(self):
+		''' Crea e salva tutti i cittadini. '''
 		return [Citizen(self) for _ in range(self.population)]
 
 	def create_religion(self):
+		''' Crea una religione.
+		Ritorna (Tipo religione, lista_degli_Dei, riassunto) '''
 		god_exist = True if random.random() < 0.7 else False
 
 		if god_exist:
-			#int. 1: solo 1 dio; 2: solo più dei; 3: o 1 o 2
+			#1: solo 1 dio; 2: solo più dei; 3: o 1 o 2
 			religions = { 
 				"Deismo" : 3,
 				"Monoteismo" : 1, 
@@ -127,22 +134,12 @@ class Civilta():
 		return s
 
 	def resume_biome(self):
-		hb = { "s" : "Mare", "p" : "pianura", "h":"collina", "m":"montagna"}
-		cb = { "c" : "fredda", "t":"temperata", "h":"calda"}
-		rb = { "d" : "secca", "n" : "normale", "w":"pluviale"}
-		h = self.biome[0]
-		c = self.biome[1]
-		r = self.biome[2]
-
-		if h == "s":
-			return hb["s"]
-		else:
-			return hb[h] + " " + cb[c] + " " + rb[r]
+		return self.biome
 
 class Citizen:
 	def __init__(self, civ):
 		self.civ = civ
-		self.nome = civ.lang.generate_word().capitalize()
+		self.nome = " ".join( (civ.lang.generate_word().capitalize() for _ in range(2)))
 		self.age = random.randint(0, 99)
 		self.sex = random.choice(["m","f"])
 

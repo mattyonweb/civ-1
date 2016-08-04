@@ -8,9 +8,9 @@ class Core:
 		consonants = "bcdfghjklmnpqrstvwxyzçæðñþ"
 		vowels_and_special = "aeiouøöÿăā"
 		self.phonetics = {
-			"C" : random.sample(consonants, 7),
-			"R" : random.sample(consonants,2),
-			"V" : random.sample(vowels_and_special, 5) }
+			"C" : random.sample(consonants, random.randint(3,11)),
+			"R" : random.sample(consonants, random.randint(2,5)),
+			"V" : random.sample(vowels_and_special, random.randint(3,7)) }
 		self.freq = {}
 		self.create_freq()
 		self.types = ["CV", "RV", "CRV"]
