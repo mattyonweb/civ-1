@@ -3,7 +3,9 @@ import engine, random
 class Civilta():
 	civs = list()
 	
-	def __init__(self, world):
+	def __init__(self, world, debug=False):
+		self.debug = debug
+		
 		self.x = 0
 		self.y = 0
 
@@ -13,11 +15,15 @@ class Civilta():
 		self.population = random.randint(40, 60)
 		self.citizens = self.create_citizens()
 
-		self.religion, self.gods, self.religion_resume = self.create_religion()
+		self.religion, self.gods, self.religion_resume, self.convinzione = self.create_religion()
+
+		self.mayor = None
+		self.governo = self.find_governo()
 
 		self.biome = ""
 		self.nearest = ()
-		world.add_new_civ(self)
+		if not self.debug:
+			world.add_new_civ(self)
 		
 		Civilta.civs.append(self)
 
@@ -27,12 +33,14 @@ class Civilta():
 	def print_informations(self):
 		print("Nome:", self.nome)
 		print("Coordinate:", (self.x, self.y))
-		print("Civiltà più vicina:", str(self.nearest[1]), self.nearest[0])
+		if not self.debug:
+			print("Civiltà più vicina:", str(self.nearest[1]), self.nearest[0])
 		print("Popolazione:", self.population)
-		for c in random.sample(self.citizens, 5):
-			print(c)
 		print("Bioma:", self.resume_biome())
 		print("Religione:", self.religion_resume)
+		print("Convinzione nella metafisica:", self.convinzione)
+		print("Forma di governo:", self.governo)
+		print(self.beautify_governo())
 
 		
 	@staticmethod
@@ -45,6 +53,83 @@ class Civilta():
 	def create_citizens(self):
 		''' Crea e salva tutti i cittadini. '''
 		return [Citizen(self) for _ in range(self.population)]
+
+	def find_governo(self):
+		''' Elabora e ritorna la forma di governo per la civiltà. '''
+		
+		detentori = ["nessuno", "uno", "consilium"]
+		legittimatori = ["dio", "popolo", "forza"]
+
+		#se la religiosità di un popolo è alta, allora è più probabile
+		#che ottenga una teocrazia
+		if self.convinzione > 90 and len(self.gods) != 0:
+			teo_bias = self.convinzione/5 - 17 #dà per scontato che ci siano tre scelte tra i legittimatori
+
+		#se invece sono atei (anche poco) convinti, non saranno mai teocrazia
+		elif self.convinzione > 65 and len(self.gods) == 0:
+			teo_bias = 0
+		else:
+			teo_bias = 1
+
+		#montecarlo per decidere i detentori del potere
+		while True:
+			det = random.choice(detentori)
+			if random.random() < 1/(2*len(detentori)):
+				break
+
+		#montecarlo pesato per decidere l'origine del potere
+		while True:
+			leg = random.choice(legittimatori)
+
+			if leg == "dio":
+				if random.random() < teo_bias/len(legittimatori):
+					break
+			else:
+				if random.random() < 1/(2*len(legittimatori)):
+					break
+
+		#tabella che funziona così:
+		#sulle y (dall'alto), detentori: nessuno, uno, consilium
+		#sulle x, legittimatori: dio, popolo, forza
+		corrispondences = [
+		["anarchia utopica", "anarchia libertaria", "anarchia militare"],
+		["teocrazia assolutistica", "autoritarianismo", "oligarchia"],
+		["teocrazia oligarchica", "democrazia", "tirannide"]]
+
+		#per gli indici fai riferimento alla tabella qui sopra
+		governo = corrispondences[detentori.index(det)][legittimatori.index(leg)]
+
+		
+		if detentori.index(det) == 0: #se nessuno è detentore del potere (ancap)
+			self.mayor = "-"
+			
+		elif detentori.index(det) == 1: #se è uno solo
+			while True:
+				c = random.choice(self.citizens)
+				if random.randint(10, 100) < c.age:
+					break
+			self.mayor = c
+			self.mayor.roles.append("presidente")
+			
+		else: #se è un consilium
+			parlamentari = random.sample(self.citizens, random.randint(2,10))
+			for p in parlamentari:
+				p.roles.append("parlamentare")
+			#genera (nome_del_consiglio, lista parlamentari)s
+			self.mayor = (self.lang.generate_text(3).title(), parlamentari)
+
+		return governo
+
+	def beautify_governo(self):
+		if isinstance(self.mayor, Citizen):
+			return "Presidente: " + str(self.mayor)
+		elif isinstance(self.mayor, tuple):
+			s = "Nome del consilium: " + str(self.mayor[0]) + "\nAppartenenti:\n\t"
+			for c in self.mayor[1]:
+				s += str(c) + "\n\t "
+			return s
+		else:
+			return "-"
 
 	def create_religion(self):
 		''' Crea una religione.
@@ -77,8 +162,10 @@ class Civilta():
 			religion = random.choice(["Animismo", "Agnosticismo", "Ateismo"])
 			gods_list = []
 
+		convinzione = random.randint(50,100)
+
 		resume = self.religion_resume(religion, gods_list)
-		return (religion, gods_list, resume)
+		return (religion, gods_list, resume, convinzione)
 
 
 	def religion_resume(self, religion, gods):
@@ -142,6 +229,10 @@ class Citizen:
 		self.nome = " ".join( (civ.lang.generate_word().capitalize() for _ in range(2)))
 		self.age = random.randint(0, 99)
 		self.sex = random.choice(["m","f"])
+		self.roles = []
 
 	def __str__(self):
-		return ", ".join((self.nome, self.sex, str(self.age)))
+		s = ", ".join((self.nome, self.sex, str(self.age)))
+		if len(self.roles) > 0:
+			s += " (" + ", ".join(self.roles) + ")"
+		return s

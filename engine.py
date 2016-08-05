@@ -42,9 +42,9 @@ class Core:
 				w += char
 		return w
 
-	def generate_text(self):
+	def generate_text(self, length=100):
 		t = ""
-		for words in range(100):
+		for words in range(length):
 			if random.random() < 0.1:
 				t += self.generate_word() + random.choice(punctuation) + " "
 			else:

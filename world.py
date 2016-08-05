@@ -261,7 +261,7 @@ class World():
 		draw.ellipse((x-r, y-r, x+r, y+r), fill = 'red', outline ='white')
 		draw.ellipse((x-r/5, y-r/5, x+r/5, y+r/5), fill = 'white', outline ='white')
 
-		font = ImageFont.truetype("Ticketing.ttf",15)
+		font = ImageFont.truetype("arial.ttf",15)
 		draw.text((x,y+r), name + " " + str(x) + "," + str(y), (0,0,0), font=font)
 
 	def nearest_civ_distance(self):
