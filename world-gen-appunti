@@ -90,4 +90,10 @@ I Grnstrd sono una piccola (< 50 abitanti) civiltà stanziata nei pressi del lag
 	- Dividi la mappa in biomi
 	- Per ogni zona chiusa composta solo da un bioma, genera un nome
 es: se il bioma è montagna-fredda-secca, allora si dovrà scegliere tra [la montagna|monte|picco][freddo/a|gelido/a|congelato/a] di [nome a caso]
-Il problema con questo approccio è che ci possono essere zone estremamente grandi che ricadono sotto un unico nome 
+Il problema con questo approccio è che ci possono essere zone estremamente grandi che ricadono sotto un unico nome
+
+17. Biomi
+sea : sea
+bch : beach
+nth : il nulla delle montagne asciutte
+bar : il poco delle montagne asciutte

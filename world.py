@@ -1,5 +1,6 @@
 from PIL import Image, ImageDraw, ImageFont
 import noise, random, math, civilization, collections
+from utils import *
 
 class World():
 
@@ -44,13 +45,13 @@ class World():
 		for y in range(self.height):
 			l1 = []
 			for x in range(self.width):
-				base_val = self.noise_rescale(noise.snoise2(random_start + x/x_diff,
+				base_val = noise_rescale(noise.snoise2(random_start + x/x_diff,
 															random_start + y/y_diff,
 															octave, persistence, lacunarity))
 				val = base_val ** exp					
 				l1.append(val)
 			l.append(l1)
-		print(self.avg_map(l)) #stampa la media di tutti questi valori
+		print(avg_map(l)) #stampa la media di tutti questi valori
 		return l
 
 	def create_biome_matrix(self):
@@ -179,15 +180,15 @@ class World():
 
 				if temp_on:
 					if "congelata" in b:
-						c = self.blend_colors(col, (32,32,200))
+						c = blend_colors(col, (32,32,200))
 					elif "fredda" in b:
-						c = self.blend_colors(col, (128,128,255))
+						c = blend_colors(col, (128,128,255))
 					if "temperata" in b:
 						c = col
 					elif "calda" in b:
-						c = self.blend_colors(col, (255,128,129))
+						c = blend_colors(col, (255,128,129))
 					elif "bollente" in b:
-						c = self.blend_colors(col, (200,32,32))
+						c = blend_colors(col, (200,32,32))
 
 					pixels[x,y]=c
 				else:
@@ -271,36 +272,7 @@ class World():
 			min, civ = 1000, None
 			for civ2 in self.civs:
 				if civ1 != civ2:
-					d = self.distance(civ1.x, civ2.x, civ1.y, civ2.y)
+					d = distance(civ1.x, civ2.x, civ1.y, civ2.y)
 					if d < min:
 						min, civ = d, civ2
 			civ1.nearest = (min, str(civ))
-					
-
-	# --- UTILS ---
-	def bell_curve(self, x, a, b, c):
-		return a*math.e**((-(x-b)**2)/2*c**2)
-
-	def maprange(self, s,a1,a2,b1,b2):
-		return b1+(((s-a1)*(b2-b1))/(a2-a1))
-
-	def noise_rescale(self, val):
-		''' Porta il noise da [-1,1] a [0,1]'''
-		return 0.5 + val/2
-
-	def distance(self, x1, x2, y1, y2):
-		return math.sqrt( (x2-x1)**2 + (y2-y1)**2)
-
-	def avg_map(self, mappa):
-		''' Ritorna la media dei valori di una matrix '''
-		all_vals = (mappa[y][x] for y in range(len(mappa)) for x in range(len(mappa[1])))
-		return sum(all_vals)/(len(mappa)*len(mappa[1]))
-
-	def blend_colors(self, c1, c2):
-		''' Missa due colori. '''
-		f = lambda x,y: int(255-(( (255-x)**2 + (255-y)**2)/2)**0.5)
-		#f = lambda x,y: min(x+y,255)
-		new_r = f(c1[0],c2[0])
-		new_g = f(c1[1],c2[1])
-		new_b = f(c1[2],c2[2])
-		return (new_r, new_g, new_b)

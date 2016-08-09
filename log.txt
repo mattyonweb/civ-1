@@ -1,0 +1,1778 @@
+0.19348234025298172
+0.5119931937687654
+0.2632512081003885
+Nome: zøæāðā
+Coordinate: (207, 269)
+Civiltà più vicina: þröxrÿcdÿ 9.219544457292887
+Popolazione: 54
+Bioma: palude temperata
+71
+Religione: Politeismo
+Dio/Dei:
+	Rluæā
+	Rikāñlāwvö
+	Rāvÿ
+Azioni di Dio: provvidenza, creazione
+Ricompensa religione: favori
+Metodi di adorazione: sacrifici, jiad, costruzioni
+Forma di governo: anarchia utopica
+-
+------------
+Nome: fqoñøci
+Coordinate: (213, 424)
+Civiltà più vicina: ceæöxfø 16.55294535724685
+Popolazione: 40
+Bioma: foresta pluviale fredda
+70
+Religione: Outeismo
+Dio/Dei:-
+Azioni di Dio: nessuno
+Ricompensa religione: nessuna
+Metodi di adorazione: nessuna
+Forma di governo: democrazia
+Nome del consilium: Ñøñāckiño Tqiyāwi Kā 
+Appartenenti:
+	Hikøtqā Tiñkoññø, m, 92 (parlamentare)
+	Døhøwo Coñido, f, 81 (parlamentare)
+	Cøccikø Qiwiñhidqi, m, 31 (parlamentare)
+	Wkohiti Qiycøkā, m, 74 (parlamentare)
+	Wñifqicø Cøtiqo, m, 38 (parlamentare)
+	Tāwøñkoyo Cñocøki, m, 58 (parlamentare)
+	
+------------
+Nome: snøþøþnÿsnÿ
+Coordinate: (165, 322)
+Civiltà più vicina: gyañdugyo 25.80697580112788
+Popolazione: 53
+Bioma: palude fredda
+66
+Religione: Monotesimo
+Dio/Dei:
+	Jejăæă
+Azioni di Dio: provvidenza, creazione
+Ricompensa religione: favori
+Metodi di adorazione: costruzioni, sacrifici, preghiere, jiad
+Forma di governo: teocrazia oligarchica
+Nome del consilium: Þÿþæăæÿ Văþăæe Jăþejă 
+Appartenenti:
+	Æønăæă Sæăvæăsÿæă, f, 62 (parlamentare)
+	Æeæeje Năæă, f, 30 (parlamentare)
+	Þnøæănÿsæe Nøæe, f, 18 (parlamentare)
+	Nÿæăþæøæÿjæÿ Væeje, f, 57 (parlamentare)
+	Jøæøþnă Jÿþÿnÿ, f, 61 (parlamentare)
+	Jøjæeæă Þnejæăne, f, 20 (parlamentare)
+	
+------------
+Nome: yā
+Coordinate: (67, 47)
+Civiltà più vicina: gdāðtudtā 22.20360331117452
+Popolazione: 59
+Bioma: palude fredda
+67
+Religione: Outeismo
+Dio/Dei:-
+Azioni di Dio: nessuno
+Ricompensa religione: nessuna
+Metodi di adorazione: nessuna
+Forma di governo: autoritarianismo
+Presidente: Hăcā Ñÿpiñnelu, m, 72 (presidente)
+------------
+Nome: dÿñføñopudpi
+Coordinate: (1, 170)
+Civiltà più vicina: pañnupuþne 40.19950248448356
+Popolazione: 51
+Bioma: prateria fredda
+67
+Religione: Politeismo
+Dio/Dei:
+	Sojÿzö
+	Fiñifofo
+	Nijujø
+	Zpunidu
+	Sfijjiçø
+	Pöföçÿñā
+	Jçojø
+	Rönço
+	Firøzø
+Azioni di Dio: provvidenza
+Ricompensa religione: favori, paradiso
+Metodi di adorazione: preghiere, costruzioni, jiad, sacrifici
+Forma di governo: democrazia
+Nome del consilium: Çörözu Juzfo Njÿjojājø 
+Appartenenti:
+	Ñønösjo Jisörfi, f, 61 (parlamentare)
+	Zçöñjo Zopöpö, m, 83 (parlamentare)
+	Rføsçønijo Ñöçiçö, m, 28 (parlamentare)
+	Jjÿçöçunju Ñodufo, m, 29 (parlamentare)
+	
+------------
+Nome: dcucurāwā
+Coordinate: (271, 160)
+Civiltà più vicina: zÿwbāqe 10.295630140987
+Popolazione: 49
+Bioma: palude fredda
+63
+Religione: Politeismo
+Dio/Dei:
+	Deðceru
+	Twurāru
+	Cātwu
+	Twuwārece
+Azioni di Dio: creazione
+Ricompensa religione: paradiso, favori
+Metodi di adorazione: preghiere, sacrifici, jiad
+Forma di governo: anarchia utopica
+-
+------------
+Nome: lyapapa
+Coordinate: (189, 422)
+Civiltà più vicina: fqoñøci 24.08318915758459
+Popolazione: 47
+Bioma: foresta pluviale temperata
+67
+Religione: Outeismo
+Dio/Dei:-
+Azioni di Dio: nessuno
+Ricompensa religione: nessuna
+Metodi di adorazione: nessuna
+Forma di governo: anarchia militare
+-
+------------
+Nome: wÿþăvu
+Coordinate: (19, 209)
+Civiltà più vicina: tanu 17.0
+Popolazione: 59
+Bioma: prateria fredda
+63
+Religione: Ateismo
+Forma di governo: democrazia
+Nome del consilium: Văþurþu Hølpă Vÿþÿ 
+Appartenenti:
+	Cÿxþÿþu Lăxÿhøñþă, m, 96 (parlamentare)
+	Hÿhvăñþÿcÿ Þuþøpÿñÿ, m, 83 (parlamentare)
+	Căþølvÿ Wÿñuxÿ, f, 64 (parlamentare)
+	Ñøñpÿxÿvÿ Xþuþu, f, 55 (parlamentare)
+	Lÿñþulă Ñăxpă, m, 88 (parlamentare)
+	Răcă Văñÿñvø, m, 78 (parlamentare)
+	Þøñpă Cpuvăñvu, m, 97 (parlamentare)
+	Hvÿxø Lpøpuþøhvă, f, 36 (parlamentare)
+	Vÿvuwþălpu Xøvø, f, 27 (parlamentare)
+	
+------------
+Nome: fmÿhe
+Coordinate: (172, 49)
+Civiltà più vicina: wði 4.47213595499958
+Popolazione: 59
+Bioma: bosco fredda
+69
+Religione: Politeismo
+Dio/Dei:
+	Tðøyenaðe
+	Cøbici
+	Căycăði
+	Tmitbăybăða
+Azioni di Dio: creazione, provvidenza
+Ricompensa religione: favori, paradiso
+Metodi di adorazione: sacrifici, preghiere
+Forma di governo: anarchia militare
+-
+------------
+Nome: ðaztifā
+Coordinate: (144, 50)
+Civiltà più vicina: çdāñaðo 11.661903789690601
+Popolazione: 48
+Bioma: bosco fredda
+68
+Religione: Outeismo
+Dio/Dei:-
+Azioni di Dio: nessuno
+Ricompensa religione: nessuna
+Metodi di adorazione: nessuna
+Forma di governo: tirannide
+Presidente: Ðafæÿfæaca Æijtadði, m, 42 (presidente)
+------------
+Nome: jugkā
+Coordinate: (313, 285)
+Civiltà più vicina: rnønÿþu 26.1725046566048
+Popolazione: 49
+Bioma: foresta pluviale fredda
+64
+Religione: Monotesimo
+Dio/Dei:
+	Jujtÿwu
+Azioni di Dio: provvidenza, creazione
+Ricompensa religione: favori, paradiso
+Metodi di adorazione: jiad
+Forma di governo: teocrazia assolutistica
+Presidente: Luwÿkuæāwÿ Gkøtājæu, m, 94 (presidente)
+------------
+Nome: ynuyø
+Coordinate: (273, 308)
+Civiltà più vicina: rnønÿþu 22.360679774997898
+Popolazione: 58
+Bioma: prateria temperata
+66
+Religione: Enoteismo
+Dio/Dei:
+	Æăløltāptu
+	Lăltolo
+	Æupøæocā
+	Æpāytøpā
+Azioni di Dio: provvidenza
+Ricompensa religione: favori
+Metodi di adorazione: preghiere, sacrifici, costruzioni
+Forma di governo: anarchia utopica
+-
+------------
+Nome: köwnölnă
+Coordinate: (215, 369)
+Civiltà più vicina: yeæzāyāfăæa 13.92838827718412
+Popolazione: 56
+Bioma: taiga fredda
+61
+Religione: Ateismo
+Forma di governo: oligarchia
+Nome del consilium: Vövøvnö Lăvø Vøwkăwølă 
+Appartenenti:
+	Æövvølă Vănøvvă, m, 69 (parlamentare)
+	Æöwvăkăwvø Vövönăæö, m, 68 (parlamentare)
+	Lönøvø Kălvăævøævă, m, 68 (parlamentare)
+	Kăvövăvø Æöænă, f, 64 (parlamentare)
+	Kökă Vøækøækö, f, 37 (parlamentare)
+	Vköækø Æøvkø, f, 98 (parlamentare)
+	
+------------
+Nome: kowi
+Coordinate: (281, 203)
+Civiltà più vicina: rujlö 7.280109889280518
+Popolazione: 58
+Bioma: palude temperata
+71
+Religione: Outeismo
+Dio/Dei:-
+Azioni di Dio: nessuno
+Ricompensa religione: nessuna
+Metodi di adorazione: nessuna
+Forma di governo: democrazia
+Nome del consilium: Þārþāwukā Tpañpuþe Kereþÿ 
+Appartenenti:
+	Kokpÿpu Qupÿqe, f, 83 (parlamentare)
+	Kuñewi Kÿþe, f, 63 (parlamentare)
+	Kiñpewpu Kuqkawþoþu, m, 25 (parlamentare)
+	Ñāruqe Qkatipu, f, 43 (parlamentare)
+	Rþÿwþowkorākpi Ñÿpiþā, f, 25 (parlamentare)
+	Pupiqþu Þiþu, f, 22 (parlamentare)
+	
+------------
+Nome: rujlö
+Coordinate: (274, 201)
+Civiltà più vicina: kowi 7.280109889280518
+Popolazione: 57
+Bioma: palude fredda
+71
+Religione: Monotesimo
+Dio/Dei:
+	Tasarazö
+Azioni di Dio: creazione, provvidenza
+Ricompensa religione: paradiso, favori
+Metodi di adorazione: preghiere, sacrifici, costruzioni, jiad
+Forma di governo: teocrazia oligarchica
+Nome del consilium: Pðăvajöda Ðavăla Rādtăsta: 
+Appartenenti:
+	Yadðăjavyă Lötötă, f, 20 (parlamentare)
+	Rzöpălaðu Zătörðă, m, 73 (parlamentare)
+	Vlapavyu Suyāyāya, f, 35 (parlamentare)
+	Vzörðöyă Jöpavtajā, m, 36 (parlamentare)
+	Latāja Yalălă, m, 63 (parlamentare)
+	Rövăjzulăðă Lavăjö, m, 94 (parlamentare)
+	Yazðö Syöyulta, m, 75 (parlamentare)
+	
+------------
+Nome: töxā
+Coordinate: (94, 101)
+Civiltà più vicina: nmømmögmo 12.083045973594572
+Popolazione: 51
+Bioma: prateria fredda
+65
+Religione: Ateismo
+Forma di governo: oligarchia
+Nome del consilium: Xmöbta Hmāhile Cābi 
+Appartenenti:
+	Făxāmā Fesmibtā, f, 51 (parlamentare)
+	Taxi Fimă, m, 50 (parlamentare)
+	Ñmālcăla Scebā, m, 74 (parlamentare)
+	Lxāxexö Bcasihtatā, m, 49 (parlamentare)
+	Băñi Hcihăñta, f, 89 (parlamentare)
+	
+------------
+Nome: ærovÿæo
+Coordinate: (117, 408)
+Civiltà più vicina: yijifø 25.96150997149434
+Popolazione: 58
+Bioma: spiaggia fredda
+68
+Religione: Enoteismo
+Dio/Dei:
+	Çöæöjnö
+	Kevÿçno
+Azioni di Dio: provvidenza
+Ricompensa religione: favori, paradiso
+Metodi di adorazione: preghiere, sacrifici
+Forma di governo: teocrazia assolutistica
+Presidente: Vnoböne Kÿkÿve, m, 31 (presidente)
+------------
+Nome: yuðăæiwø
+Coordinate: (212, 220)
+Civiltà più vicina: hāceæe 15.811388300841896
+Popolazione: 48
+Bioma: palude fredda
+69
+Religione: Monotesimo
+Dio/Dei:
+	Wøæă
+Azioni di Dio: provvidenza, creazione
+Ricompensa religione: paradiso
+Metodi di adorazione: jiad, preghiere
+Forma di governo: autoritarianismo
+Presidente: Æuæupiwo Cpøcðølø, f, 87 (presidente)
+------------
+Nome: jăjcăji
+Coordinate: (129, 127)
+Civiltà più vicina: gekuka 39.56008088970496
+Popolazione: 51
+Bioma: prateria fredda
+66
+Religione: Ateismo
+Forma di governo: anarchia militare
+-
+------------
+Nome: fcatpø
+Coordinate: (280, 270)
+Civiltà più vicina: çbøcøbøhbesi 18.439088914585774
+Popolazione: 46
+Bioma: palude fredda
+62
+Religione: Monotesimo
+Dio/Dei:
+	Ðcøncøfcafca
+Azioni di Dio: provvidenza, creazione
+Ricompensa religione: paradiso
+Metodi di adorazione: jiad, preghiere, sacrifici, costruzioni
+Forma di governo: anarchia utopica
+-
+------------
+Nome: hÿgdÿkbe
+Coordinate: (92, 57)
+Civiltà più vicina: gdāðtudtā 7.615773105863909
+Popolazione: 44
+Bioma: palude fredda
+62
+Religione: Monotesimo
+Dio/Dei:
+	Luxÿdÿ
+Azioni di Dio: creazione, provvidenza
+Ricompensa religione: paradiso, favori
+Metodi di adorazione: preghiere, sacrifici, costruzioni
+Forma di governo: teocrazia assolutistica
+Presidente: Dānudÿ Legneðu, f, 78 (presidente)
+------------
+Nome: sāxā
+Coordinate: (195, 340)
+Civiltà più vicina: wuqāqö 15.297058540778355
+Popolazione: 60
+Bioma: palude fredda
+65
+Religione: Monotesimo
+Dio/Dei:
+	Qøþxānxă
+Azioni di Dio: creazione, provvidenza
+Ricompensa religione: favori, paradiso
+Metodi di adorazione: sacrifici, costruzioni
+Forma di governo: democrazia
+Nome del consilium: Săsukā Kāxuæā Þunifkăxānki 
+Appartenenti:
+	Þøsuqkăæă Æxăqkăfu, m, 27 (parlamentare)
+	Kiskiæā Fxănkiþkā, m, 72 (parlamentare)
+	Qukāqānxā Xøfăxu, m, 18 (parlamentare)
+	Xixāæku Nkānxăxăxi, f, 89 (parlamentare)
+	Fxăqăqxu Kāxønkā, f, 67 (parlamentare)
+	
+------------
+Nome: kādcātmi
+Coordinate: (293, 201)
+Civiltà più vicina: mgărgā 3.605551275463989
+Popolazione: 43
+Bioma: palude temperata
+68
+Religione: Outeismo
+Dio/Dei:-
+Azioni di Dio: nessuno
+Ricompensa religione: nessuna
+Metodi di adorazione: nessuna
+Forma di governo: anarchia militare
+-
+------------
+Nome: tanu
+Coordinate: (11, 224)
+Civiltà più vicina: wÿþăvu 17.0
+Popolazione: 44
+Bioma: prateria fredda
+62
+Religione: Politeismo
+Dio/Dei:
+	Fcafcÿtuðu
+	Tutcønÿ
+	Ncønÿtnø
+	Funönÿwu
+Azioni di Dio: creazione, provvidenza
+Ricompensa religione: favori
+Metodi di adorazione: costruzioni
+Forma di governo: teocrazia oligarchica
+Nome del consilium: Fnønøtnu? Fÿxuccuxÿ Nucnuna 
+Appartenenti:
+	Wcöcuxnÿ Nøcucaxø, f, 91 (parlamentare)
+	Xøccøwca Nøcannöba, m, 64 (parlamentare)
+	Baca Xubnafnø, f, 82 (parlamentare)
+	Xunuxcÿ Nøccøbö, f, 21 (parlamentare)
+	Nÿnucø Cÿnÿcö, m, 46 (parlamentare)
+	
+------------
+Nome: ñrābaçā
+Coordinate: (45, 267)
+Civiltà più vicina: tanu 54.817880294662984
+Popolazione: 46
+Bioma: foresta pluviale fredda
+68
+Religione: Enoteismo
+Dio/Dei:
+	Ñçaðaðra
+	Ñārăðă
+	Çăbçăçazçā
+	Rāðrāzā
+	Brābăcañă
+	Bçăñçāra
+	Çāçază
+Azioni di Dio: creazione
+Ricompensa religione: favori, paradiso
+Metodi di adorazione: preghiere, jiad, costruzioni
+Forma di governo: teocrazia oligarchica
+Nome del consilium: Çazra Zaçāraðā Çañçarā 
+Appartenenti:
+	Ðçārabçā Cābçarā, f, 37 (parlamentare)
+	Þăcrāçaðā Baba, m, 53 (parlamentare)
+	Zabçăþā Þrācrañçacça, f, 50 (parlamentare)
+	Ñañrañacçă Þçazçă, m, 61 (parlamentare)
+	Crăþçāră Zçăñrăcāña, m, 55 (parlamentare)
+	Ðçāðraçă Þarāñă, f, 76 (parlamentare)
+	
+------------
+Nome: çbøcøbøhbesi
+Coordinate: (276, 252)
+Civiltà più vicina: rărÿyñö 17.804493814764857
+Popolazione: 52
+Bioma: palude fredda
+66
+Religione: Ateismo
+Forma di governo: democrazia
+Nome del consilium: Søcø Vøvøsi. Çsihegø 
+Appartenenti:
+	Çbisegøbø Pe, m, 77 (parlamentare)
+	Søvsiçi Söcbibe, m, 48 (parlamentare)
+	Sögbebibe Bebege, m, 44 (parlamentare)
+	Bigbøsi Bøçi, f, 20 (parlamentare)
+	Cisö Cöçici, f, 23 (parlamentare)
+	
+------------
+Nome: söyvăbu
+Coordinate: (146, 341)
+Civiltà più vicina: gyañdugyo 4.47213595499958
+Popolazione: 46
+Bioma: palude fredda
+66
+Religione: Monotesimo
+Dio/Dei:
+	Hvuhvÿ
+Azioni di Dio: provvidenza, creazione
+Ricompensa religione: favori, paradiso
+Metodi di adorazione: sacrifici, preghiere, costruzioni
+Forma di governo: anarchia utopica
+-
+------------
+Nome: yökñuyu
+Coordinate: (185, 237)
+Civiltà più vicina: dkālăkÿ 5.0
+Popolazione: 50
+Bioma: prateria fredda
+75
+Religione: Ateismo
+Forma di governo: democrazia
+Nome del consilium: Jyazayövyu Möjñizði. Yökyö 
+Appartenenti:
+	Vðuñðiyazya Ðayi, f, 74 (parlamentare)
+	Zikñö Mayuzyu, m, 40 (parlamentare)
+	Ðiñajñu Vðazañö, m, 83 (parlamentare)
+	Yikañö Yö, f, 64 (parlamentare)
+	Ñðuki Nñöña, f, 87 (parlamentare)
+	Vñizñuvañu Jðiðö, m, 71 (parlamentare)
+	Kñañö Mðakaji, f, 58 (parlamentare)
+	
+------------
+Nome: rtātārtø
+Coordinate: (245, 391)
+Civiltà più vicina: huñaçu 21.2602916254693
+Popolazione: 48
+Bioma: palude fredda
+62
+Religione: Outeismo
+Dio/Dei:-
+Azioni di Dio: nessuno
+Ricompensa religione: nessuna
+Metodi di adorazione: nessuna
+Forma di governo: anarchia militare
+-
+------------
+Nome: nöça
+Coordinate: (202, 26)
+Civiltà più vicina: voñāño 26.1725046566048
+Popolazione: 52
+Bioma: prateria fredda
+72
+Religione: Monotesimo
+Dio/Dei:
+	Vona
+Azioni di Dio: creazione, provvidenza
+Ricompensa religione: favori, paradiso
+Metodi di adorazione: sacrifici, costruzioni, jiad
+Forma di governo: autoritarianismo
+Presidente: Gaþçöçă Ngaþa, f, 40 (presidente)
+------------
+Nome: bøbøzbi
+Coordinate: (235, 421)
+Civiltà più vicina: zvāri 4.0
+Popolazione: 43
+Bioma: palude fredda
+65
+Religione: Enoteismo
+Dio/Dei:
+	Ziðoho
+	Bøzba
+	Thaðöðø
+Azioni di Dio: creazione
+Ricompensa religione: favori
+Metodi di adorazione: costruzioni, preghiere, sacrifici
+Forma di governo: anarchia utopica
+-
+------------
+Nome: ðăftăktø
+Coordinate: (102, 42)
+Civiltà più vicina: gdāðtudtā 15.264337522473747
+Popolazione: 54
+Bioma: palude fredda
+66
+Religione: Enoteismo
+Dio/Dei:
+	Føðqokă
+	Yÿluçuzÿ
+	Çøfø
+	Lă
+	Ðdălotÿ
+	Fqukøqÿ
+	Høhăko
+Azioni di Dio: creazione, provvidenza
+Ricompensa religione: favori, paradiso
+Metodi di adorazione: costruzioni, sacrifici, jiad
+Forma di governo: anarchia libertaria
+-
+------------
+Nome: ñaktiñe
+Coordinate: (55, 416)
+Civiltà più vicina: ærovÿæo 62.51399843235114
+Popolazione: 53
+Bioma: prateria fredda
+64
+Religione: Politeismo
+Dio/Dei:
+	Galtata
+	Ñepe
+	Gcañiliñi
+	Xañtiñi
+	Ñite
+	Pikñecu
+Azioni di Dio: provvidenza
+Ricompensa religione: favori, paradiso
+Metodi di adorazione: jiad
+Forma di governo: teocrazia assolutistica
+Presidente: Yucepce Yuki, f, 35 (presidente)
+------------
+Nome: bötzöke
+Coordinate: (333, 10)
+Civiltà più vicina: rlakþi 26.570660511172846
+Popolazione: 58
+Bioma: palude temperata
+67
+Religione: Enoteismo
+Dio/Dei:
+	Zibekö
+	Köæāçāzkā
+	Ftātökā
+Azioni di Dio: provvidenza
+Ricompensa religione: paradiso, favori
+Metodi di adorazione: jiad, costruzioni, preghiere
+Forma di governo: anarchia utopica
+-
+------------
+Nome: dkālăkÿ
+Coordinate: (185, 242)
+Civiltà più vicina: yökñuyu 5.0
+Popolazione: 60
+Bioma: palude fredda
+63
+Religione: Monotesimo
+Dio/Dei:
+	Xăhā
+Azioni di Dio: creazione
+Ricompensa religione: paradiso, favori
+Metodi di adorazione: costruzioni
+Forma di governo: anarchia utopica
+-
+------------
+Nome: nāseca
+Coordinate: (293, 245)
+Civiltà più vicina: çbøcøbøhbesi 18.384776310850235
+Popolazione: 41
+Bioma: palude temperata
+68
+Religione: Monotesimo
+Dio/Dei:
+	Sāyejsā
+Azioni di Dio: creazione, provvidenza
+Ricompensa religione: favori, paradiso
+Metodi di adorazione: jiad
+Forma di governo: teocrazia assolutistica
+Presidente: Ksalsacnisö Ynÿna, f, 28 (presidente)
+------------
+Nome: ðqojālăjă
+Coordinate: (139, 360)
+Civiltà più vicina: kăðkazozo 14.422205101855956
+Popolazione: 50
+Bioma: foresta pluviale fredda
+70
+Religione: Outeismo
+Dio/Dei:-
+Azioni di Dio: nessuno
+Ricompensa religione: nessuna
+Metodi di adorazione: nessuna
+Forma di governo: tirannide
+Presidente: Moðkuçðo Qa, f, 49 (presidente)
+------------
+Nome: æönveye
+Coordinate: (156, 76)
+Civiltà più vicina: çdāñaðo 20.09975124224178
+Popolazione: 59
+Bioma: palude fredda
+70
+Religione: Enoteismo
+Dio/Dei:
+	Neæetø
+	Æønāyæā
+	Nānæeyæā
+	Tetāævö
+Azioni di Dio: creazione, provvidenza
+Ricompensa religione: paradiso, favori
+Metodi di adorazione: jiad, sacrifici
+Forma di governo: teocrazia oligarchica
+Nome del consilium: Tveævā Æøteæö Vătāyö 
+Appartenenti:
+	Æā Tāævøvātvø, f, 35 (parlamentare)
+	Vötāyvö Tæāæønönö, m, 79 (parlamentare)
+	Æønvøtøve Vāævăyāvă, m, 63 (parlamentare)
+	Tāyæønvā Yāyăææöyā, m, 83 (parlamentare)
+	Ævöyāæve Tăævønövā, m, 60 (parlamentare)
+	
+------------
+Nome: mÿcmekyă
+Coordinate: (320, 34)
+Civiltà più vicina: bötzöke 27.294688127912362
+Popolazione: 52
+Bioma: prateria calda
+63
+Religione: Enoteismo
+Dio/Dei:
+	Yāyÿyø
+	Yăjyøsmāmø
+	Yămi
+	Săkyøli
+	Mÿjmāma
+	Møgmÿma
+	Lyemākye
+Azioni di Dio: provvidenza, creazione
+Ricompensa religione: favori, paradiso
+Metodi di adorazione: preghiere, costruzioni
+Forma di governo: democrazia
+Nome del consilium: Gmāmăyāya Xmāyÿki Yāþmana 
+Appartenenti:
+	Gølma Yāsākăjă, m, 70 (parlamentare)
+	Māsi Yisāpayyă, m, 28 (parlamentare)
+	Gayyamā Yāsyā, m, 82 (parlamentare)
+	Sicyăkmi Mămā, m, 18 (parlamentare)
+	Malmÿkyÿ Gÿkmÿyma, f, 58 (parlamentare)
+	Yiyiya Yyÿpă, f, 43 (parlamentare)
+	Xājmasā Syÿxmāxyeyø, m, 93 (parlamentare)
+	Kÿmăkyā Jyākmāpmā, f, 43 (parlamentare)
+	
+------------
+Nome: jusxegi
+Coordinate: (283, 52)
+Civiltà più vicina: hagöfø 10.816653826391969
+Popolazione: 51
+Bioma: foresta pluviale temperata
+68
+Religione: Politeismo
+Dio/Dei:
+	Þdeþe
+	Þajgeþi
+	Gisfo
+	Vøþixo
+	Taæuhoæbi
+	Fijojo
+	Xavxøvovfø
+	Æiæadi
+	Dehbuæu
+	Gøxevø
+Azioni di Dio: creazione, provvidenza
+Ricompensa religione: paradiso, favori
+Metodi di adorazione: sacrifici, jiad, costruzioni, preghiere
+Forma di governo: teocrazia assolutistica
+Presidente: Bajdove Hxujigi, f, 68 (presidente)
+------------
+Nome: jqødboæø
+Coordinate: (232, 59)
+Civiltà più vicina: çölö 9.433981132056603
+Popolazione: 44
+Bioma: foresta pluviale fredda
+70
+Religione: Monotesimo
+Dio/Dei:
+	Qăgxaggă
+Azioni di Dio: provvidenza, creazione
+Ricompensa religione: paradiso
+Metodi di adorazione: costruzioni, sacrifici, jiad, preghiere
+Forma di governo: teocrazia assolutistica
+Presidente: Xøæøxaba Jxāæÿjhø, f, 28 (presidente)
+------------
+Nome: năgo
+Coordinate: (225, 447)
+Civiltà più vicina: fqoñøci 25.942243542145693
+Popolazione: 52
+Bioma: palude fredda
+65
+Religione: Monotesimo
+Dio/Dei:
+	Nøsnānø
+Azioni di Dio: provvidenza
+Ricompensa religione: favori
+Metodi di adorazione: costruzioni, jiad
+Forma di governo: teocrazia oligarchica
+Nome del consilium: Ðihÿæÿ Nøæÿðni Nÿkÿñăñiðæo 
+Appartenenti:
+	Gæoæănÿ Gnecehÿ, f, 61 (parlamentare)
+	Dnømonādnā Nānā, m, 44 (parlamentare)
+	Çocæăgnÿ Æÿmneðnă, f, 94 (parlamentare)
+	Dăçnocæÿkÿ Æăkæoæÿno, f, 29 (parlamentare)
+	Æoheæehno Knøçæiæo, m, 84 (parlamentare)
+	
+------------
+Nome: vmivima
+Coordinate: (123, 82)
+Civiltà più vicina: æönveye 33.54101966249684
+Popolazione: 55
+Bioma: foresta pluviale fredda
+67
+Religione: Monotesimo
+Dio/Dei:
+	Rgÿwegate
+Azioni di Dio: creazione
+Ricompensa religione: paradiso, favori
+Metodi di adorazione: jiad, sacrifici, costruzioni
+Forma di governo: teocrazia assolutistica
+Presidente: Vgegige Tagivmita, m, 61 (presidente)
+------------
+Nome: çÿçkotā
+Coordinate: (14, 9)
+Civiltà più vicina: lödørehre 28.284271247461902
+Popolazione: 53
+Bioma: foresta pluviale fredda
+65
+Religione: Ateismo
+Forma di governo: anarchia militare
+-
+------------
+Nome: tidcefñefi
+Coordinate: (168, 270)
+Civiltà più vicina: wekþepe 12.649110640673518
+Popolazione: 51
+Bioma: prateria temperata
+61
+Religione: Enoteismo
+Dio/Dei:
+	Diyseselide
+	Dñÿseleflicÿ
+	Lÿtsifsÿ
+	Ciscilÿ
+	Ciycisi
+	Fijlÿsedi
+	Cicÿyce
+Azioni di Dio: provvidenza, creazione
+Ricompensa religione: paradiso, favori
+Metodi di adorazione: sacrifici, preghiere, jiad, costruzioni
+Forma di governo: anarchia utopica
+-
+------------
+Nome: nmømmögmo
+Coordinate: (89, 90)
+Civiltà più vicina: töxā 12.083045973594572
+Popolazione: 42
+Bioma: prateria temperata
+65
+Religione: Politeismo
+Dio/Dei:
+	Xzönmegokø
+	Zkahomö
+	Czöcko
+	Xöço
+	Hezökomo
+Azioni di Dio: creazione
+Ricompensa religione: favori, paradiso
+Metodi di adorazione: jiad, preghiere, costruzioni
+Forma di governo: autoritarianismo
+Presidente: Mahozmö Nacönø, m, 44 (presidente)
+------------
+Nome: mgărgā
+Coordinate: (290, 199)
+Civiltà più vicina: kādcātmi 3.605551275463989
+Popolazione: 45
+Bioma: palude temperata
+66
+Religione: Politeismo
+Dio/Dei:
+	Gărgaxergu
+	Gugămă
+	Xāma
+	Mexö
+	Mgămÿxamă
+	Röxxārxā
+	Măxaxāxe
+	Rergema
+	Gexÿxxe
+Azioni di Dio: provvidenza, creazione
+Ricompensa religione: favori
+Metodi di adorazione: jiad, sacrifici, costruzioni
+Forma di governo: anarchia libertaria
+-
+------------
+Nome: kwÿyabwa
+Coordinate: (237, 329)
+Civiltà più vicina: qeve 12.529964086141668
+Popolazione: 41
+Bioma: palude fredda
+61
+Religione: Ateismo
+Forma di governo: anarchia libertaria
+-
+------------
+Nome: wekþepe
+Coordinate: (180, 266)
+Civiltà più vicina: tidcefñefi 12.649110640673518
+Popolazione: 53
+Bioma: spiaggia temperata
+71
+Religione: Monotesimo
+Dio/Dei:
+	Þÿfö
+Azioni di Dio: provvidenza, creazione
+Ricompensa religione: favori, paradiso
+Metodi di adorazione: preghiere, jiad, costruzioni, sacrifici
+Forma di governo: anarchia utopica
+-
+------------
+Nome: qeve
+Coordinate: (226, 335)
+Civiltà più vicina: kwÿyabwa 12.529964086141668
+Popolazione: 52
+Bioma: palude fredda
+63
+Religione: Monotesimo
+Dio/Dei:
+	Vÿvevÿ
+Azioni di Dio: provvidenza
+Ricompensa religione: favori, paradiso
+Metodi di adorazione: jiad, costruzioni
+Forma di governo: teocrazia oligarchica
+Nome del consilium: Qebqe, Yednervÿñevö Jenÿsÿ 
+Appartenenti:
+	Döbÿkveyqö Kvefnöve, m, 55 (parlamentare)
+	Jvÿkeve Besövö, f, 34 (parlamentare)
+	Rÿmöñne Röqö, f, 63 (parlamentare)
+	Vÿqöve Seneqösö, f, 98 (parlamentare)
+	
+------------
+Nome: ðñānÿ
+Coordinate: (45, 142)
+Civiltà più vicina: pañnupuþne 32.2490309931942
+Popolazione: 46
+Bioma: prateria fredda
+62
+Religione: Ateismo
+Forma di governo: tirannide
+Presidente: Zunzusÿðæi Zāmu, f, 18 (presidente)
+------------
+Nome: nonasÿ
+Coordinate: (53, 21)
+Civiltà più vicina: kÿkø 14.035668847618199
+Popolazione: 45
+Bioma: palude fredda
+58
+Religione: Politeismo
+Dio/Dei:
+	Xÿtanÿ
+	Þutøntøtÿ
+	Stÿtobqubo
+	Qanoþÿ
+	Bþaþÿqo
+	Xanota
+	Nøqÿ
+	Nþasøsÿ
+	Notunqø
+	Sqabþaxo
+Azioni di Dio: provvidenza
+Ricompensa religione: paradiso
+Metodi di adorazione: costruzioni, jiad, preghiere, sacrifici
+Forma di governo: teocrazia oligarchica
+Nome del consilium: Søþa Qabxø Suqata 
+Appartenenti:
+	Sxabþusø Btanxÿqo, m, 84 (parlamentare)
+	Qÿþabxo Sxaba, m, 63 (parlamentare)
+	Xanuqÿ Nþasøta, m, 81 (parlamentare)
+	Boqÿsÿþu Nobÿno, m, 81 (parlamentare)
+	Nana Nqønoxøsto, f, 90 (parlamentare)
+	Qÿqantonÿxu Sutøbø, m, 20 (parlamentare)
+	
+------------
+Nome: zini
+Coordinate: (180, 290)
+Civiltà più vicina: tidcefñefi 23.323807579381203
+Popolazione: 53
+Bioma: foresta pluviale fredda
+62
+Religione: Outeismo
+Dio/Dei:-
+Azioni di Dio: nessuno
+Ricompensa religione: nessuna
+Metodi di adorazione: nessuna
+Forma di governo: anarchia libertaria
+-
+------------
+Nome: zdÿdañdÿho
+Coordinate: (117, 38)
+Civiltà più vicina: ðăftăktø 15.524174696260024
+Popolazione: 51
+Bioma: taiga fredda
+66
+Religione: Ateismo
+Forma di governo: democrazia
+Nome del consilium: Bæuæelæapda Æöcø Cæöjdo 
+Appartenenti:
+	Zuæahdundo Bdöldø, f, 25 (parlamentare)
+	Jdöde Zøzdeæe, m, 21 (parlamentare)
+	Doæe Døñøpde, f, 52 (parlamentare)
+	Cahecÿpæa Æöbæödu, f, 61 (parlamentare)
+	Bdede Dödaæÿ, m, 59 (parlamentare)
+	Beæÿæø Döæÿhæö, f, 82 (parlamentare)
+	
+------------
+Nome: wuqāqö
+Coordinate: (198, 355)
+Civiltà più vicina: sāxā 15.297058540778355
+Popolazione: 52
+Bioma: taiga fredda
+65
+Religione: Enoteismo
+Dio/Dei:
+	Qøjewwemqÿ
+	Qăcø
+Azioni di Dio: provvidenza
+Ricompensa religione: paradiso
+Metodi di adorazione: costruzioni, jiad, preghiere
+Forma di governo: democrazia
+Nome del consilium: Wÿwuqønu Wewumÿ, Cewuzwuwö 
+Appartenenti:
+	Zuwwăqu Wÿbā, f, 85 (parlamentare)
+	Bötquwā Çquçømqø, f, 92 (parlamentare)
+	Wøzwăqă Nÿcudwu, m, 99 (parlamentare)
+	Cÿwedqă Wø, m, 81 (parlamentare)
+	Qøcewÿ Cwöqu, f, 52 (parlamentare)
+	Dqăçu Nwācwøwqø, m, 41 (parlamentare)
+	Cāçqø Wuwejøqu, m, 51 (parlamentare)
+	Twÿwÿ Zÿqewwe, m, 41 (parlamentare)
+	
+------------
+Nome: yeæzāyāfăæa
+Coordinate: (202, 374)
+Civiltà più vicina: köwnölnă 13.92838827718412
+Popolazione: 57
+Bioma: bosco fredda
+69
+Religione: Monotesimo
+Dio/Dei:
+	Ñămoæmāmyo
+Azioni di Dio: creazione, provvidenza
+Ricompensa religione: paradiso
+Metodi di adorazione: costruzioni, sacrifici
+Forma di governo: anarchia militare
+-
+------------
+Nome: hocÿ
+Coordinate: (257, 201)
+Civiltà più vicina: ñaførfoæqo 12.041594578792296
+Popolazione: 43
+Bioma: palude fredda
+69
+Religione: Enoteismo
+Dio/Dei:
+	Msuqhāçðo
+	Dhăðÿçhā
+	Suæköhö
+Azioni di Dio: creazione
+Ricompensa religione: favori, paradiso
+Metodi di adorazione: jiad, preghiere, costruzioni, sacrifici
+Forma di governo: anarchia utopica
+-
+------------
+Nome: æăpjăjnuljāzu
+Coordinate: (265, 236)
+Civiltà più vicina: rărÿyñö 2.0
+Popolazione: 58
+Bioma: palude fredda
+70
+Religione: Enoteismo
+Dio/Dei:
+	Pălþăju
+	Þulăpþö
+Azioni di Dio: provvidenza
+Ricompensa religione: paradiso
+Metodi di adorazione: jiad
+Forma di governo: teocrazia oligarchica
+Nome del consilium: Þiljuluvþă Nāþöæăñjā Jănuæji 
+Appartenenti:
+	Pjāþă Lnijnăñþāæni, m, 24 (parlamentare)
+	Jăjöæö Vnunăpnă, f, 96 (parlamentare)
+	Þālnuþivnö Jnāhănă, m, 43 (parlamentare)
+	Năpāwju Æjöþāhnā, m, 28 (parlamentare)
+	Lþāljāæāzā Linuænöjnā, m, 97 (parlamentare)
+	
+------------
+Nome: kÿkø
+Coordinate: (52, 7)
+Civiltà più vicina: lödørehre 10.198039027185569
+Popolazione: 53
+Bioma: palude fredda
+62
+Religione: Ateismo
+Forma di governo: tirannide
+Presidente: Þÿæÿqÿþqø Ðuquje, f, 70 (presidente)
+------------
+Nome: qödpudpo
+Coordinate: (90, 135)
+Civiltà più vicina: gekuka 3.1622776601683795
+Popolazione: 40
+Bioma: prateria fredda
+69
+Religione: Ateismo
+Forma di governo: tirannide
+Presidente: Paqða Tucÿbumö, m, 94 (presidente)
+------------
+Nome: yijifø
+Coordinate: (124, 383)
+Civiltà più vicina: hgøhăpøqñö 20.0
+Popolazione: 58
+Bioma: prateria fredda
+71
+Religione: Monotesimo
+Dio/Dei:
+	Băftiftijÿ
+Azioni di Dio: provvidenza, creazione
+Ricompensa religione: paradiso, favori
+Metodi di adorazione: jiad, sacrifici
+Forma di governo: oligarchia
+Nome del consilium: Siæÿ Bixøtăjø Çtÿwøwăyă 
+Appartenenti:
+	Æxisbø Sÿyðÿsă, f, 38 (parlamentare)
+	Ðiðicÿstÿ Tÿstÿ, f, 52 (parlamentare)
+	Bicÿ Çøsøðÿji, m, 83 (parlamentare)
+	Æbøjăði Yxøwtă, m, 61 (parlamentare)
+	Yøxicbă Yiyÿ, f, 34 (parlamentare)
+	Sjăwăyi Wxifitø, f, 40 (parlamentare)
+	
+------------
+Nome: zøtçoño
+Coordinate: (70, 12)
+Civiltà più vicina: wÿpo 2.0
+Popolazione: 40
+Bioma: palude fredda
+72
+Religione: Ateismo
+Forma di governo: autoritarianismo
+Presidente: Çøbÿçø Nñelçe, f, 30 (presidente)
+------------
+Nome: ceæöxfø
+Coordinate: (228, 417)
+Civiltà più vicina: bøbøzbi 8.06225774829855
+Popolazione: 41
+Bioma: palude fredda
+63
+Religione: Outeismo
+Dio/Dei:-
+Azioni di Dio: nessuno
+Ricompensa religione: nessuna
+Metodi di adorazione: nessuna
+Forma di governo: anarchia libertaria
+-
+------------
+Nome: forvārfelfo
+Coordinate: (202, 326)
+Civiltà più vicina: sāxā 15.652475842498529
+Popolazione: 55
+Bioma: palude fredda
+68
+Religione: Ateismo
+Forma di governo: democrazia
+Nome del consilium: Mfevuçe Bfuvufu! Fobvi 
+Appartenenti:
+	Rfidodo Rvāçā, f, 80 (parlamentare)
+	Fubvofi Fihvude, m, 77 (parlamentare)
+	Dfo Foçu, m, 18 (parlamentare)
+	Rfālfāhāfā Çugve, m, 42 (parlamentare)
+	Fivo Dforihfo, m, 57 (parlamentare)
+	Hifolfufu Vobfuvi, f, 98 (parlamentare)
+	
+------------
+Nome: keñjöña
+Coordinate: (184, 227)
+Civiltà più vicina: yökñuyu 10.04987562112089
+Popolazione: 40
+Bioma: palude fredda
+68
+Religione: Monotesimo
+Dio/Dei:
+	Jiro
+Azioni di Dio: creazione
+Ricompensa religione: favori, paradiso
+Metodi di adorazione: sacrifici
+Forma di governo: anarchia utopica
+-
+------------
+Nome: gāvlö
+Coordinate: (207, 388)
+Civiltà più vicina: yeæzāyāfăæa 14.866068747318506
+Popolazione: 55
+Bioma: taiga fredda
+70
+Religione: Monotesimo
+Dio/Dei:
+	Glöçnāba
+Azioni di Dio: creazione, provvidenza
+Ricompensa religione: paradiso, favori
+Metodi di adorazione: sacrifici
+Forma di governo: anarchia militare
+-
+------------
+Nome: ñaførfoæqo
+Coordinate: (266, 193)
+Civiltà più vicina: rujlö 11.313708498984761
+Popolazione: 48
+Bioma: palude fredda
+64
+Religione: Ateismo
+Forma di governo: anarchia libertaria
+-
+------------
+Nome: ðþila
+Coordinate: (328, 241)
+Civiltà più vicina: sømu 13.038404810405298
+Popolazione: 60
+Bioma: taiga fredda
+69
+Religione: Monotesimo
+Dio/Dei:
+	Løñaðþø
+Azioni di Dio: provvidenza
+Ricompensa religione: paradiso, favori
+Metodi di adorazione: preghiere, sacrifici, jiad, costruzioni
+Forma di governo: autoritarianismo
+Presidente: Wønÿ Ðwø, f, 43 (presidente)
+------------
+Nome: çölö
+Coordinate: (240, 54)
+Civiltà più vicina: jqødboæø 9.433981132056603
+Popolazione: 52
+Bioma: palude fredda
+66
+Religione: Politeismo
+Dio/Dei:
+	Sijidqojø
+	Qöæudðu
+	Lodðuwo
+	Lxørqÿqiwø
+	Xăæðiæăji
+	Ææöðirö
+	Pqăqqøjăxö
+	Æøjðixi
+Azioni di Dio: provvidenza, creazione
+Ricompensa religione: favori, paradiso
+Metodi di adorazione: sacrifici
+Forma di governo: teocrazia oligarchica
+Nome del consilium: Çqijø Æxÿdÿlÿ, Dæiçqøæi 
+Appartenenti:
+	Xøxiðöjxu Widðo, f, 19 (parlamentare)
+	Rðÿæoxi Pÿpöqu, m, 73 (parlamentare)
+	Jquqÿçæoqö Lăæuðöwi, m, 29 (parlamentare)
+	Jiæu Sæă, f, 21 (parlamentare)
+	Sæöxorxÿ Qowowo, m, 25 (parlamentare)
+	Sxölădo Pæÿwö, f, 61 (parlamentare)
+	
+------------
+Nome: lödørehre
+Coordinate: (42, 5)
+Civiltà più vicina: kÿkø 10.198039027185569
+Popolazione: 54
+Bioma: foresta pluviale fredda
+71
+Religione: Ateismo
+Forma di governo: tirannide
+Presidente: Jlerö Wsödöjöælø, m, 45 (presidente)
+------------
+Nome: hagöfø
+Coordinate: (292, 46)
+Civiltà più vicina: jusxegi 10.816653826391969
+Popolazione: 56
+Bioma: foresta pluviale temperata
+63
+Religione: Enoteismo
+Dio/Dei:
+	Fnanÿ
+	Høføfø
+	Fnÿfanöfa
+	Hÿhfuzi
+	Nönÿ
+	Zÿhnö
+Azioni di Dio: creazione, provvidenza
+Ricompensa religione: favori
+Metodi di adorazione: sacrifici, costruzioni
+Forma di governo: teocrazia oligarchica
+Nome del consilium: Jinifgø Zöjöju Ñzöñÿña 
+Appartenenti:
+	Fizi Gÿgayu, m, 69 (parlamentare)
+	Nahnÿæÿ Ziæudnø, m, 51 (parlamentare)
+	Ñayöæfÿnø Xzöhföxni, f, 69 (parlamentare)
+	Fgiæanözi Çÿføyzö, m, 26 (parlamentare)
+	Ffifgazÿ Xÿgøxnÿ, m, 35 (parlamentare)
+	
+------------
+Nome: ætevoye
+Coordinate: (344, 217)
+Civiltà più vicina: sømu 17.72004514666935
+Popolazione: 42
+Bioma: prateria fredda
+61
+Religione: Politeismo
+Dio/Dei:
+	Diyoðări
+	Leði
+	Tiðiyivo
+	Lðoyă
+	Vtildărdoðe
+	Lovăæðo
+	Ydoæe
+	Ðoveðele
+Azioni di Dio: creazione
+Ricompensa religione: favori
+Metodi di adorazione: preghiere, jiad, sacrifici
+Forma di governo: anarchia utopica
+-
+------------
+Nome: kăðkazozo
+Coordinate: (147, 348)
+Civiltà più vicina: söyvăbu 7.0710678118654755
+Popolazione: 44
+Bioma: palude fredda
+68
+Religione: Monotesimo
+Dio/Dei:
+	Ðăzekalÿ
+Azioni di Dio: creazione, provvidenza
+Ricompensa religione: favori
+Metodi di adorazione: preghiere, jiad, sacrifici, costruzioni
+Forma di governo: anarchia utopica
+-
+------------
+Nome: fāçxufā
+Coordinate: (156, 420)
+Civiltà più vicina: hgøhăpøqñö 29.68164415931166
+Popolazione: 52
+Bioma: palude fredda
+69
+Religione: Ateismo
+Forma di governo: anarchia libertaria
+-
+------------
+Nome: çöçöxu
+Coordinate: (272, 89)
+Civiltà più vicina: jusxegi 38.600518131237564
+Popolazione: 60
+Bioma: spiaggia fredda
+66
+Religione: Ateismo
+Forma di governo: democrazia
+Nome del consilium: Yögugă Hxÿyögă Gsugÿhcucu 
+Appartenenti:
+	Păksøpö Høvu, m, 37 (parlamentare)
+	Cöcugxø Köçgø, m, 54 (parlamentare)
+	Pupxă Ðuxøtu, f, 54 (parlamentare)
+	Vusÿpsu Yÿpcöçă, f, 39 (parlamentare)
+	Høçu Çöðsøxö, m, 57 (parlamentare)
+	Höcö Guhuðÿtø, m, 77 (parlamentare)
+	Tcöcöxu Cöysöxø, f, 94 (parlamentare)
+	
+------------
+Nome: zÿwbāqe
+Coordinate: (276, 151)
+Civiltà più vicina: dcucurāwā 10.295630140987
+Popolazione: 56
+Bioma: palude fredda
+65
+Religione: Monotesimo
+Dio/Dei:
+	Wāzebze
+Azioni di Dio: provvidenza
+Ricompensa religione: paradiso
+Metodi di adorazione: sacrifici, jiad, preghiere, costruzioni
+Forma di governo: democrazia
+Nome del consilium: Bzebeþvÿ Vebāvÿwwe Qÿbÿwzÿ 
+Appartenenti:
+	Wzÿþqebe Qāzābā, f, 69 (parlamentare)
+	Þqÿvā Qÿþbāþe, m, 52 (parlamentare)
+	Māweþbāmÿ Wābÿ, f, 99 (parlamentare)
+	Vāmÿ Weþewe, f, 83 (parlamentare)
+	Bāzāwbebe Þqewÿwÿ, f, 84 (parlamentare)
+	
+------------
+Nome: voñāño
+Coordinate: (220, 7)
+Civiltà più vicina: töguygö 22.561028345356956
+Popolazione: 54
+Bioma: palude fredda
+71
+Religione: Monotesimo
+Dio/Dei:
+	Ñege
+Azioni di Dio: creazione, provvidenza
+Ricompensa religione: favori, paradiso
+Metodi di adorazione: costruzioni
+Forma di governo: teocrazia oligarchica
+Nome del consilium: Jñāho Jveñzivo Jicve 
+Appartenenti:
+	Fegdejā Ñāñvogo, m, 81 (parlamentare)
+	Ñhoþñāveco Jhiño, f, 98 (parlamentare)
+	Sovove Þhākziñho, f, 56 (parlamentare)
+	Hājñefi Defzejā, f, 35 (parlamentare)
+	Hdājicvā Vevoño, m, 43 (parlamentare)
+	Zifhāvā Zocvāsñāgo, f, 58 (parlamentare)
+	
+------------
+Nome: huñaçu
+Coordinate: (231, 407)
+Civiltà più vicina: ceæöxfø 10.44030650891055
+Popolazione: 44
+Bioma: palude fredda
+71
+Religione: Ateismo
+Forma di governo: oligarchia
+Nome del consilium: Yăñuña Jñÿwñuñu Yuyuză 
+Appartenenti:
+	Hañāhyÿ Ðyāðăçya, f, 25 (parlamentare)
+	Yoñagā Jāzyozu, f, 25 (parlamentare)
+	Jăñyu Çyuñøwñu, f, 61 (parlamentare)
+	Hyăwñÿză Çyujañÿ, f, 20 (parlamentare)
+	Wăçuyoða Jyuñÿðu, m, 35 (parlamentare)
+	Zuðaðyă Hăwyā, f, 45 (parlamentare)
+	Jăjyăwugā Jÿwyaçăya, f, 78 (parlamentare)
+	Çyogøza Yāñÿwøgyo, f, 98 (parlamentare)
+	
+------------
+Nome: bøfyøghu
+Coordinate: (179, 390)
+Civiltà più vicina: yeæzāyāfăæa 28.0178514522438
+Popolazione: 59
+Bioma: taiga fredda
+68
+Religione: Ateismo
+Forma di governo: autoritarianismo
+Presidente: Bhøgÿzwÿ Bhubwÿzhu, m, 37 (presidente)
+------------
+Nome: gekuka
+Coordinate: (91, 138)
+Civiltà più vicina: qödpudpo 3.1622776601683795
+Popolazione: 40
+Bioma: prateria fredda
+66
+Religione: Politeismo
+Dio/Dei:
+	Çÿsugizka
+	Gkøçaska
+	Çÿgutikāztÿ
+	Sÿze
+	Tazegugø
+	Stigasākÿ
+	Sikekā
+	Gezasu
+Azioni di Dio: provvidenza, creazione
+Ricompensa religione: favori, paradiso
+Metodi di adorazione: costruzioni, sacrifici
+Forma di governo: teocrazia assolutistica
+Presidente: Kākÿzçā Gøsçeçā, f, 43 (presidente)
+------------
+Nome: hāceæe
+Coordinate: (225, 229)
+Civiltà più vicina: yuðăæiwø 15.811388300841896
+Popolazione: 45
+Bioma: prateria fredda
+65
+Religione: Ateismo
+Forma di governo: tirannide
+Presidente: Lāyu Æhazeæa, m, 28 (presidente)
+------------
+Nome: gyañdugyo
+Coordinate: (144, 337)
+Civiltà più vicina: söyvăbu 4.47213595499958
+Popolazione: 60
+Bioma: palude fredda
+70
+Religione: Monotesimo
+Dio/Dei:
+	Røbeñbā
+Azioni di Dio: creazione
+Ricompensa religione: favori
+Metodi di adorazione: sacrifici, costruzioni, preghiere, jiad
+Forma di governo: teocrazia oligarchica
+Nome del consilium: Ñroñā Ñyubbu Babøgdo 
+Appartenenti:
+	Ñbøbobdøya Yayabø, m, 84 (parlamentare)
+	Gbagyu Roborøbø, m, 64 (parlamentare)
+	Bdāre Duñeñādu, m, 62 (parlamentare)
+	Gyābyudo Guñø, f, 22 (parlamentare)
+	Ñøgyāgu Bbañubø, m, 60 (parlamentare)
+	Bredābu Byugbubyedā, f, 90 (parlamentare)
+	Ñdøbbañraño Yadeba, m, 98 (parlamentare)
+	
+------------
+Nome: çdāñaðo
+Coordinate: (154, 56)
+Civiltà più vicina: ðaztifā 11.661903789690601
+Popolazione: 56
+Bioma: palude fredda
+66
+Religione: Ateismo
+Forma di governo: democrazia
+Nome del consilium: Çoqobða Nāro Ñdodāðāða 
+Appartenenti:
+	Ðokqāça Çqāqañā, m, 48 (parlamentare)
+	Borārna Qoçā, m, 90 (parlamentare)
+	Rðorðo Dovaqo, f, 56 (parlamentare)
+	Dāðnā Nāððābo, m, 41 (parlamentare)
+	
+------------
+Nome: pvoyaya
+Coordinate: (302, 192)
+Civiltà più vicina: kādcātmi 12.727922061357855
+Popolazione: 58
+Bioma: palude temperata
+66
+Religione: Monotesimo
+Dio/Dei:
+	Ðovoþtā
+Azioni di Dio: creazione, provvidenza
+Ricompensa religione: paradiso
+Metodi di adorazione: sacrifici, preghiere
+Forma di governo: teocrazia assolutistica
+Presidente: Svoyjāsă Votayo, f, 63 (presidente)
+------------
+Nome: kolvăñxekā
+Coordinate: (40, 74)
+Civiltà più vicina: yā 38.18376618407357
+Popolazione: 55
+Bioma: palude fredda
+65
+Religione: Ateismo
+Forma di governo: autoritarianismo
+Presidente: Viæxiæo Ñkăviski, f, 78 (presidente)
+------------
+Nome: rlakþi
+Coordinate: (358, 19)
+Civiltà più vicina: bötzöke 26.570660511172846
+Popolazione: 47
+Bioma: palude temperata
+65
+Religione: Ateismo
+Forma di governo: democrazia
+Nome del consilium: Leþehădi Dþiþăla Þeþÿ 
+Appartenenti:
+	Ðlaðede Hiþeyala, f, 63 (parlamentare)
+	Liþaþă Þade, f, 66 (parlamentare)
+	Þărÿlă Kþakedÿ, m, 28 (parlamentare)
+	Lihehþa Dþeyaðþi, f, 40 (parlamentare)
+	Diþi Hlelela, f, 43 (parlamentare)
+	
+------------
+Nome: xekă
+Coordinate: (180, 68)
+Civiltà più vicina: wði 18.027756377319946
+Popolazione: 46
+Bioma: prateria fredda
+68
+Religione: Politeismo
+Dio/Dei:
+	Ñgawgözăxā
+	Geæibgÿ
+	Gipena
+Azioni di Dio: provvidenza
+Ricompensa religione: paradiso, favori
+Metodi di adorazione: sacrifici, preghiere
+Forma di governo: teocrazia assolutistica
+Presidente: Wæāñkaæā Æekökigi, m, 25 (presidente)
+------------
+Nome: jæøju
+Coordinate: (264, 26)
+Civiltà più vicina: jusxegi 32.202484376209235
+Popolazione: 47
+Bioma: foresta pluviale fredda
+67
+Religione: Politeismo
+Dio/Dei:
+	Văæo
+	Qtavxøsæöæø
+	Suqtovava
+	Juæötö
+	Ytøæÿjto
+	Støtoæömxÿ
+	Mxÿmöxă
+Azioni di Dio: creazione
+Ricompensa religione: paradiso, favori
+Metodi di adorazione: preghiere, jiad
+Forma di governo: teocrazia assolutistica
+Presidente: Taætoþö Væuxxajÿ, m, 24 (presidente)
+------------
+Nome: jmisumi
+Coordinate: (245, 230)
+Civiltà più vicina: hāceæe 20.024984394500787
+Popolazione: 41
+Bioma: spiaggia fredda
+65
+Religione: Monotesimo
+Dio/Dei:
+	Jxesgu
+Azioni di Dio: creazione, provvidenza
+Ricompensa religione: favori
+Metodi di adorazione: jiad, sacrifici, preghiere
+Forma di governo: anarchia libertaria
+-
+------------
+Nome: sømu
+Coordinate: (339, 234)
+Civiltà più vicina: ðþila 13.038404810405298
+Popolazione: 50
+Bioma: palude fredda
+67
+Religione: Enoteismo
+Dio/Dei:
+	Ðçøfø
+	Gømāzā
+	Dāsøfurøsðā
+	Gøfçuru
+Azioni di Dio: provvidenza, creazione
+Ricompensa religione: paradiso
+Metodi di adorazione: preghiere, jiad
+Forma di governo: anarchia libertaria
+-
+------------
+Nome: zvāri
+Coordinate: (239, 421)
+Civiltà più vicina: bøbøzbi 4.0
+Popolazione: 53
+Bioma: palude fredda
+67
+Religione: Enoteismo
+Dio/Dei:
+	Ðugvāðā
+	Fuppovi
+	Māmāpu
+	Voti
+	Zogivu
+	Pþovozi
+	Tivoðo
+Azioni di Dio: provvidenza
+Ricompensa religione: paradiso
+Metodi di adorazione: jiad
+Forma di governo: democrazia
+Nome del consilium: Zpizrāði Ðugmo Māzutpipo 
+Appartenenti:
+	Ðvāgigo Tvigvuzpi, f, 31 (parlamentare)
+	Pizizrā Gizugrufpā, f, 35 (parlamentare)
+	Rorāto Fmoðotvi, m, 82 (parlamentare)
+	Pofumu Goþufru, m, 27 (parlamentare)
+	
+------------
+Nome: rărÿyñö
+Coordinate: (265, 238)
+Civiltà più vicina: æăpjăjnuljāzu 2.0
+Popolazione: 49
+Bioma: palude fredda
+62
+Religione: Politeismo
+Dio/Dei:
+	Çvöçñö
+	Veñeyvocö
+	Yveyo
+Azioni di Dio: provvidenza
+Ricompensa religione: paradiso, favori
+Metodi di adorazione: sacrifici, costruzioni
+Forma di governo: anarchia militare
+-
+------------
+Nome: þröxrÿcdÿ
+Coordinate: (209, 260)
+Civiltà più vicina: zøæāðā 9.219544457292887
+Popolazione: 43
+Bioma: palude temperata
+62
+Religione: Enoteismo
+Dio/Dei:
+	Çărede
+	Careþră
+	Bradöxö
+	Rărebdÿrida
+	Reþa
+Azioni di Dio: creazione
+Ricompensa religione: paradiso, favori
+Metodi di adorazione: jiad, costruzioni, sacrifici, preghiere
+Forma di governo: anarchia utopica
+-
+------------
+Nome: gdāðtudtā
+Coordinate: (89, 50)
+Civiltà più vicina: hÿgdÿkbe 7.615773105863909
+Popolazione: 41
+Bioma: palude fredda
+60
+Religione: Ateismo
+Forma di governo: anarchia libertaria
+-
+------------
+Nome: wði
+Coordinate: (170, 53)
+Civiltà più vicina: fmÿhe 4.47213595499958
+Popolazione: 60
+Bioma: prateria fredda
+62
+Religione: Enoteismo
+Dio/Dei:
+	Wfāhødðo
+	Hðagmalmi
+	Lmøfāti
+	Dumÿ
+	Mofÿgigfø
+	Fømudismā
+Azioni di Dio: creazione
+Ricompensa religione: paradiso
+Metodi di adorazione: preghiere, jiad, costruzioni
+Forma di governo: oligarchia
+Nome del consilium: Gøloðo Ðāzola Wāsafi 
+Appartenenti:
+	Fazmimumø Fāfāma, f, 71 (parlamentare)
+	Gmagfohmi Sodmøsðivmÿ, f, 69 (parlamentare)
+	Lÿðāmÿ Figā, m, 88 (parlamentare)
+	Ðømÿ Gozāføsfÿ, m, 57 (parlamentare)
+	
+------------
+Nome: hgøhăpøqñö
+Coordinate: (140, 395)
+Civiltà più vicina: yijifø 20.0
+Popolazione: 55
+Bioma: prateria fredda
+69
+Religione: Ateismo
+Forma di governo: anarchia militare
+-
+------------
+Nome: wÿpo
+Coordinate: (70, 14)
+Civiltà più vicina: zøtçoño 2.0
+Popolazione: 59
+Bioma: foresta pluviale fredda
+61
+Religione: Outeismo
+Dio/Dei:-
+Azioni di Dio: nessuno
+Ricompensa religione: nessuna
+Metodi di adorazione: nessuna
+Forma di governo: autoritarianismo
+Presidente: Rohana Saböbwa, f, 22 (presidente)
+------------
+Nome: rnønÿþu
+Coordinate: (295, 304)
+Civiltà più vicina: ynuyø 22.360679774997898
+Popolazione: 52
+Bioma: spiaggia temperata
+64
+Religione: Politeismo
+Dio/Dei:
+	Ninÿyu
+	Byørÿþe
+	Yøxa
+	Þyoðu
+	Syohnu
+Azioni di Dio: creazione
+Ricompensa religione: paradiso
+Metodi di adorazione: preghiere, costruzioni, jiad, sacrifici
+Forma di governo: autoritarianismo
+Presidente: Bÿyoyibo Yaðo, f, 91 (presidente)
+------------
+Nome: pañnupuþne
+Coordinate: (41, 174)
+Civiltà più vicina: ðñānÿ 32.2490309931942
+Popolazione: 50
+Bioma: palude fredda
+66
+Religione: Politeismo
+Dio/Dei:
+	Nneçuðuru
+	Rodogo
+	Padoza
+	Þaçgede
+	Dodazenu
+	Gaza
+Azioni di Dio: creazione, provvidenza
+Ricompensa religione: favori
+Metodi di adorazione: sacrifici, jiad, costruzioni
+Forma di governo: autoritarianismo
+Presidente: Gðudnaçdu Çaçðune, f, 81 (presidente)
+------------
+Nome: töguygö
+Coordinate: (242, 2)
+Civiltà più vicina: voñāño 22.561028345356956
+Popolazione: 49
+Bioma: taiga fredda
+73
+Religione: Ateismo
+Forma di governo: autoritarianismo
+Presidente: Æuxuæö Æuggā, m, 47 (presidente)
+------------

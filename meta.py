@@ -11,7 +11,7 @@ def show_world():
 		
 	world.nearest_civ_distance()
 	civilization.Civilta.print_all_informations()
-	world.show_image()
+	#world.show_image()
 
 		
 show_world()
