@@ -3,7 +3,7 @@ import noise, random, math, civilization, collections
 from utils import *
 
 class World():
-
+	#2, 0.45, 0.4, 0.2
 	def __init__(self, x, y, civs_num=2, roughness=0.45, coldness=0.4, dryness=0.2):
 		self.width = x
 		self.height = y
@@ -33,6 +33,9 @@ class World():
 		self.tempmap = self.create_matrix(6, 0.8, 2.2, exp=coldness)
 		
 		self.biomemap = self.create_biome_matrix()
+
+		self.islandsmap = [[0 for x in range(self.width)] for y in range(self.height)]
+		self.identify_islands()
 		
 		self.civs = {} #dizionario civ_obj:(x,y)
 		for _ in range(civs_num):
@@ -212,61 +215,93 @@ class World():
 
 		return img
 
-	def create_islands_matrix(self):
-		islands = [[-1 for x in range(self.width)] for y in range(self.height)]
-		island_id = 1
+	def connected_regions(self):
+		matrix = [[0 for x in range(self.width)] for y in range(self.height)]
+		seen = set()
+		counter = 1
+		equivalences = {}
 		
-		for y in range(self.height):
-			for x in range(self.width):
-				if "mare" in self.biomemap[y][x]:
-					islands[y][x] = 0
-					continue
-
-				try:
-					n = [islands[y+y_][x+x_] for y_ in range(-1, 2) for x_ in range(-1, 2) if x_!=y_]
-				except:
-					continue
-					
-				if n.count(0) + n.count(-1) == len(n): #se sono tutti 0 o -1
-					islands[y][x] = island_id
-					island_id += 1
-				else:
-					for el in n:
-						if el!=0 and el!=-1:
-							identifier = el
-							break
-					islands[y][x] = el
-		return islands
-
-	def refine_islands(self, islands):
-		for y in range(self.height):
-			for x in range(self.width):
-				if islands[y][x] == 0:
-					continue
-				try:
+		for x in range(self.width):
+			for y in range(self.height):
+				#print(x,y,end=", ")
+				#crea una lista neigh che contiene le celle vicine a quella in questione
+				#che sono già state visitate
+				neigh = list()
+				for x_ in range(-1,2):
 					for y_ in range(-1,2):
-						for x_ in range(-1,2):
-							if y_!=x_:
-								if islands[y+y_][x+x_]!=islands[y][x] and islands[y+y_][x+x_]!=0:
-									islands[y+y_][x+x_] = islands[y][x]
-				except:
-					continue
-		return islands
+						if not (y_==0 and x_==0):
+							if (x+x_, y+y_) in seen:
+								neigh.append(matrix[y+y_][x+x_])
+
+				#print(neigh, self.heightmap[y][x], end=", ")
+				#se la cella selezionata è circondata da caselle vuote e ad essa
+				#corrisponde, in heightmap, un punto di terra emersa, dichiara una
+				#nuova isola
+				if neigh.count(0) == len(neigh) and self.heightmap[y][x] > self.sea_lvl:
+					counter += 1
+					matrix[y][x] = counter
+					
+				elif self.heightmap[y][x] <= self.sea_lvl:
+					matrix[y][x] = 0
+
+				#altrimenti, si assegna alla cella in questione l'id più piccolo tra
+				#quelli nel neigh. in caso di conflitti (ie quando ci sono più id isola
+				#nello stesso neigh) si assegna al dizionario equivalences un record:
+				#equivalences[id_grande] = id_minore
+				#per poter, in seguito, riunire tutto in un unica isola
+				else:
+					unique_values_neigh = set(neigh)
+					#print(unique_values_neigh)
+					try:
+						unique_values_neigh.remove(0)
+					except:
+						pass
+						
+					if len(unique_values_neigh) > 1:
+						for _ in range(len(unique_values_neigh)-1):
+							equivalences[max(unique_values_neigh)] = min(unique_values_neigh)
+							unique_values_neigh.remove(max(unique_values_neigh))
+
+					matrix[y][x] = min(unique_values_neigh)
 				
 
-	def island_img(self, isl_mtrx):
+				seen.add((x,y))
+
+		self.islandsmap = matrix
+		print(equivalences)
+		return equivalences
+
+	def identify_islands(self):
+		equivalences = self.connected_regions()
+		
+		for x in range(self.width):
+			for y in range(self.height):
+				'''while True:
+					if self.islandsmap[y][x] in list(equivalences.keys()):
+						self.islandsmap[y][x] = equivalences[self.islandsmap[y][x]]'''
+				self.islandsmap[y][x] = self.find_root(equivalences, self.islandsmap[y][x])
+					
+
+	def find_root(self, d, value):
+		if value not in d.keys():
+			return value
+		else:
+			return self.find_root(d, d[value])
+		
+	def island_img(self):
 		img = Image.new( 'RGB', (self.width, self.height), (255,255,255,0))
 		pixels = img.load()
 
+		#RIFARE CON SET (INSIEMI)
 		colors = {}
 		for y in range(img.size[1]):
 			for x in range(img.size[0]):
-				if isl_mtrx[y][x] not in list(colors.keys()):
-					colors[isl_mtrx[y][x]] = (random.randint(0,255),random.randint(0,255),random.randint(0,255))
+				if self.islandsmap[y][x] not in list(colors.keys()):
+					colors[self.islandsmap[y][x]] = (random.randint(0,255),random.randint(0,255),random.randint(0,255))
 
 		for y in range(img.size[1]):
 			for x in range(img.size[0]):
-				pixels[x,y] = colors[isl_mtrx[y][x]]
+				pixels[x,y] = colors[self.islandsmap[y][x]]
 		return img
 				
 	def return_complete_world_image(self, old_effect=True):
@@ -351,7 +386,7 @@ class World():
 
 		self.mark_civs_on_map(self.draw_borders_on(self.height_img)).show()
 		self.find_collisions()
-		self.island_img(self.refine_islands(self.create_islands_matrix())).show()
+		self.island_img().show()
 
 
 
