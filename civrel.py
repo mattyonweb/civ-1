@@ -1,6 +1,21 @@
 import random
 
 class CivRel():
+	gods_role = [
+	"creazione",
+	"provvidenza",
+	"nessuno" ]
+	
+	rel_ricompensa = [
+	"paradiso",
+	"favori",
+	"nessuna",
+	"taumaturgia" ]
+	
+	adoration = ["preghiere", "sacrifici", "costruzioni", "jiad", "nessuna",
+	"canti", "flagellamento", "riti sessuali", "proselitismo", "meditazione",
+	"giochi"]
+	
 	def __init__(self, civ):
 		self.civ = civ
 		kind, gods, role, reward, adoration  = self.create_religion()
@@ -24,22 +39,12 @@ class CivRel():
 		"Monotesimo" : 1,
 		"Enoteismo" : random.randint(2, 8),
 		"Politeismo" : random.randint(3, 10) }
-		gods_role = [
-		"creazione",
-		"provvidenza",
-		"nessuno" ]
-		rel_ricompensa = [
-		"paradiso",
-		"favori",
-		"nessuna" ]
-		adoration = ["preghiere", "sacrifici", "costruzioni", "jiad", "nessuna"]
 
-		# ---
 		''' Se dio esiste, allora è tutto normale;
 		se dio non esiste, al 36% sarà una religione ma senza un dio,
 		al 64% sarà una civiltà atea. '''
 		god_exist = True if random.random() < 0.7 else False #se c'è uno o più dio
-		theism = True if not god_exist and random.random() < 3.6 else False #se si crede in una religione
+		theism = True if not god_exist and random.random() < 0.26 else False #se si crede in una religione
 
 		# ["nessuno"] è una lista perché così posso fare ", ".join(lista)
 		if not god_exist and not theism:
@@ -51,9 +56,9 @@ class CivRel():
 		else:
 			rel = random.choice(list(gods_numerology.keys()))
 			gods_num = gods_numerology[rel]
-			gods_rol = self.exclusive_choices(gods_role) 
-			ricompensa = self.exclusive_choices(rel_ricompensa)
-			adorazione = self.exclusive_choices(adoration)
+			gods_rol = self.exclusive_choices(CivRel.gods_role) 
+			ricompensa = self.exclusive_choices(CivRel.rel_ricompensa)
+			adorazione = self.exclusive_choices(CivRel.adoration)
 			return (rel, gods_num, gods_rol, ricompensa, adorazione)
 			
 

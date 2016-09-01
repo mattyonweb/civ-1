@@ -32,3 +32,6 @@ def blend_colors(c1, c2):
 	new_g = f(c1[1],c2[1])
 	new_b = f(c1[2],c2[2])
 	return (new_r, new_g, new_b)
+
+def sigmoid_func(x, slope=0.1):
+	return 1 / (0.5 + math.e**((-(x - 0.35)) / slope))

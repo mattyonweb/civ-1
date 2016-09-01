@@ -4,16 +4,16 @@ from utils import *
 
 class World():
 
-	def __init__(self, x, y):
+	def __init__(self, x, y, civs_num=2, roughness=0.45, coldness=0.4, dryness=0.2):
 		self.width = x
 		self.height = y
 
 		#i livelli delle varie altezze
-		self.sea_lvl = 0.2
-		self.beach_lvl = 0.22
-		self.plains_lvl = 0.4
-		self.hills_lvl = 0.5
-		self.mountain_lvl = 0.7
+		self.sea_lvl = 0.4
+		self.beach_lvl = 0.42
+		self.plains_lvl = 0.6
+		self.hills_lvl = 0.7
+		self.mountain_lvl = 0.9
 
 		#i livelli delle varie temperature
 		self.freezing_lvl = 0.1
@@ -24,39 +24,73 @@ class World():
 		
 		#attenzione: alla heightmap bisogna accedere così:
 		#self.heightmap[y][x] e non il contrario!!!
-		self.heightmap = self.create_matrix(6, 0.75, 2.31, exp=2.6)
-		self.moisturemap = self.create_matrix(6, 0.8, 2.2, 300,300, exp=1)
-		self.tempmap = self.create_matrix(6, 0.8, 2.2, exp=2.1)
+		self.heightmap = self.create_matrix(6, 0.75, 2.01, exp=roughness, isolationism=1.45)
+		
+		#moisture: un grande exp significa più secchezza
+		self.moisturemap = self.create_matrix(6, 0.8, 2.2, 300, 300, exp=dryness)
+		
+		#temp: maggiore exp significa più freddezza
+		self.tempmap = self.create_matrix(6, 0.8, 2.2, exp=coldness)
+		
 		self.biomemap = self.create_biome_matrix()
 		
 		self.civs = {} #dizionario civ_obj:(x,y)
+		for _ in range(civs_num):
+			self.add_new_civ(civilization.Civilta(self))
 		
-		self.img = self.create_heightmap_image() #immagine del mondo
+		self.height_img = self.return_complete_world_image()
+		self.temp_img = self.create_moisturemap_image()
+		self.biome_img = self.create_biomemap_image()
 
 	# --- GENERATION ---
-	def create_matrix(self, octave=2, persistence=0.5, lacunarity=2.0, x_diff=311, y_diff=311, exp=3):
+	def create_matrix(self, octave=2, persistence=0.5, lacunarity=2.0,
+							x_diff=311, y_diff=311, exp=0.5, isolationism=1,
+							mode="standard", rad=200, debug=False):
 		''' Genera una matrice con il perlin noise.
-		exp è il rapporto tra gli estremi: ad es, un valore alto di exp per le
-		altezze porterà ad una altezza media più bassa (quindi più mare), e
-		viceversa. '''
-		random_start = random.random()*random.uniform(1,100)
+		exp è la pendenza della funzione sigmoide, ie maggiore è exp più
+		uniforme saranno i valori ritornati, minore è exp maggiori sono gli
+		estremi.
+		isolationism lo uso per le heightmap. un valore alto genera isole sempre
+		più piccole e solitarie, un valore piccolo genera grosse masse di terra.
+		'''
 		
-		l = []
+		random_start = random.random()*random.uniform(1,100)
+		smooth_func = self.return_smoothing_function(mode, exp, isolationism)
+		matrix = []
+
 		for y in range(self.height):
-			l1 = []
+			row = []
 			for x in range(self.width):
 				base_val = noise_rescale(noise.snoise2(random_start + x/x_diff,
 															random_start + y/y_diff,
 															octave, persistence, lacunarity))
-				val = base_val ** exp					
-				l1.append(val)
-			l.append(l1)
-		print(avg_map(l)) #stampa la media di tutti questi valori
-		return l
+				val = smooth_func(base_val, x, y, rad)
+				row.append(val)
+			matrix.append(row)
+
+		print(avg_map(matrix)) #stampa la media di tutti questi valori
+		return matrix
+
+	def return_smoothing_function(self, mode, exp, isolationism):
+		''' Ritorna una funzione che modifica un valore '''
+		if mode == "standard":
+			def standard_mode(x, *args):
+				return (sigmoid_func(x, exp) * x) ** isolationism
+			return standard_mode
+			
+		elif mode == "radial":	
+			def radial_mode(val, x, y, rad):
+				distance = (x - self.width/2)**2 + (y - self.height/2)**2
+				if distance < rad**2:
+					m = -distance*(1/(rad*2)) + 1.5
+				else:
+					m = -distance/rad + 1
+				return val * m
+			return radial_mode	
 
 	def create_biome_matrix(self):
 		''' Lunga e dolorsa trafila per creare una matrix di biomi. '''
-		biome_matrix = [["" for x in range(self.width)] for y in range(self.height)]
+		biomemap = [["" for x in range(self.width)] for y in range(self.height)]
 		
 		for y in range(self.height):
 			for x in range(self.width):
@@ -65,45 +99,45 @@ class World():
 				t = self.tempmap[y][x]
 
 				if h < self.sea_lvl:
-					biome_matrix[y][x] = "mare"
+					biomemap[y][x] = "mare"
 
 				elif h > self.hills_lvl:
 					if m < 0.1:
-						biome_matrix[y][x] = "montagna asciutta"
+						biomemap[y][x] = "montagna asciutta"
 					elif m < 0.4:
-						biome_matrix[y][x] = "montagna tundrosa"
+						biomemap[y][x] = "montagna tundrosa"
 					else:
-						biome_matrix[y][x] = "montagna nevosa"
+						biomemap[y][x] = "montagna nevosa"
 
 				elif h > self.plains_lvl:
 					if m < 0.2:
-						biome_matrix[y][x] = "deserto"
+						biomemap[y][x] = "deserto"
 					elif m <0.6:
-						biome_matrix[y][x] = "bosco"
+						biomemap[y][x] = "bosco"
 					else:
-						biome_matrix[y][x] = "taiga"
+						biomemap[y][x] = "taiga"
 
 				elif h > self.beach_lvl:
-					if m < 0.1:
-						biome_matrix[y][x] = "deserto"
+					if m < 0.45:
+						biomemap[y][x] = "steppa"
 					elif m < 0.5:
-						biome_matrix[y][x] = "prateria"
-					elif m < 0.7:
-						biome_matrix[y][x] = "palude"
+						biomemap[y][x] = "prateria"
+					elif m < 0.65:
+						biomemap[y][x] = "palude"
 					else:
-						biome_matrix[y][x] = "foresta pluviale"
+						biomemap[y][x] = "foresta pluviale"
 						
 				else:
 					if m<0.15:
-						biome_matrix[y][x] = "deserto"
+						biomemap[y][x] = "deserto"
 					elif m<0.5:
-						biome_matrix[y][x] = "spiaggia"
+						biomemap[y][x] = "spiaggia"
 					else:
-						biome_matrix[y][x] = "foresta pluviale"
+						biomemap[y][x] = "foresta pluviale"
 
-				biome_matrix[y][x] += " " + self.return_temp_adj(t)
+				biomemap[y][x] += " " + self.return_temp_adj(t)
 
-		return biome_matrix
+		return biomemap
 
 	def return_temp_adj(self, value):
 		''' Ritorna l'aggettivo corrispondente alla temperatura value.
@@ -117,88 +151,39 @@ class World():
 		elif value < self.warm_lvl:
 			return "calda"
 		else:
-			return "bollente"
-
+			return "bollente"					
 						
 	# --- PAINTING ---
+	''' FONDAMENTALE PER LA TRASPARENZA:
+	l'immagine di base (img) deve essere in formato "RBG", e la maschera che ci
+	andrà sopra (draw) in "RGBA", sennò non funziona!!!!! '''
 	
 	def create_heightmap_image(self):
 		''' Ritorna immagine del territorio (senza civiltà, quelle vanno aggiunte
-		direttamente a self.img) '''
-		img = Image.new( 'RGB', (self.width, self.height), "black")
+		direttamente a self.height_img) '''
+		img = Image.new('RGB', (self.width, self.height), (255,255,255,0))
 		pixels = img.load()
 
 		for y in range(img.size[1]):
 			for x in range(img.size[0]):
-				val = self.heightmap[y][x]
-				
-				if val < self.sea_lvl:
-					c = (0,0,255)
-					
-				elif val < self.beach_lvl:
-					c = (255,255,0)
-					
-				elif val < self.plains_lvl:
-					c = (0,255,0)
-					
-				elif val < self.hills_lvl:
-					c = (128,128,128)
-					
-				else:
-					c = (255,255,255)
-				pixels[x,y] = c
-				
+				height = self.heightmap[y][x]
+				pixels[x,y] = self.height_color_old_effect(height)			
 		return img
 
 	def create_biomemap_image(self, temp_on=False):
-		img = Image.new( 'RGB', (self.width, self.height), "black")
+		''' Idem per biomi '''
+		img = Image.new('RGB', (self.width, self.height), (255,255,255,0))
 		pixels = img.load()
 
 		for y in range(img.size[1]):
 			for x in range(img.size[0]):
 				b = self.biomemap[y][x]
-				if "mare" in b:
-					col = (64,64,255)
-				elif "spiaggia" in b:
-					col = (255,255,0)
-				elif "montagna" in b:
-					col = (255,255,255)
-				elif "deserto" in b:
-					col = (200,200,50)
-				elif "bosco" in b:
-					col = (0,128,0)
-				elif "prateria" in b:
-					col = (0,255,0)
-				elif "taiga" in b:
-					col = (40,150,200)
-				elif "foresta" in b:
-					col = (30,80,30)
-				elif "palude" in b:
-					col = (70,60,60)
-				else:
-					col = (0,0,0)
-
-				if temp_on:
-					if "congelata" in b:
-						c = blend_colors(col, (32,32,200))
-					elif "fredda" in b:
-						c = blend_colors(col, (128,128,255))
-					if "temperata" in b:
-						c = col
-					elif "calda" in b:
-						c = blend_colors(col, (255,128,129))
-					elif "bollente" in b:
-						c = blend_colors(col, (200,32,32))
-
-					pixels[x,y]=c
-				else:
-					pixels[x,y]=col
-					
+				pixels[x,y] = self.biome_color(b, temp_on)			
 		return img
-					
-					
+
 	def create_moisturemap_image(self):
-		img = Image.new( 'RGB', (self.width, self.height), "black")
+		''' Idem per umidità '''
+		img = Image.new( 'RGB', (self.width, self.height), (255,255,255,0))
 		pixels = img.load()
 
 		for y in range(img.size[1]):
@@ -207,30 +192,166 @@ class World():
 				pixels[x,y] = (int(val*255), int(val*255), int(val*255))
 		return img
 
-	def blend_height_temp(self, img1, img2):
-		''' Ritorna l'immagine miscuglio tra temperatura e territorio '''
-		return Image.blend(img1, img2, 0.75)
+	def draw_borders_on(self, background_image):
+		''' Disegna i confini terra-mare sopra un'altraimmagine '''
+		img = background_image
+		pixels = img.load()
+
+		for y in range(img.size[1]):
+			for x in range(img.size[0]):
+				try:
+					#n sono i vicini, n0 la posizione attuale da analizzare
+					n = (self.biomemap[y+y_][x+x_] for y_ in range(-1, 2) for x_ in range(-1, 2) if x_!=y_)
+					n0 = self.biomemap[y][x]
+					for cell in n:
+						if ("mare" in cell and not "mare" in n0) or (not "mare" in cell and "mare" in n0):
+							pixels[x,y] = (112,110,89)
+							break
+				except: 
+					continue
+
+		return img
+
+	def create_islands_matrix(self):
+		islands = [[-1 for x in range(self.width)] for y in range(self.height)]
+		island_id = 1
+		
+		for y in range(self.height):
+			for x in range(self.width):
+				if "mare" in self.biomemap[y][x]:
+					islands[y][x] = 0
+					continue
+
+				try:
+					n = [islands[y+y_][x+x_] for y_ in range(-1, 2) for x_ in range(-1, 2) if x_!=y_]
+				except:
+					continue
+					
+				if n.count(0) + n.count(-1) == len(n): #se sono tutti 0 o -1
+					islands[y][x] = island_id
+					island_id += 1
+				else:
+					for el in n:
+						if el!=0 and el!=-1:
+							identifier = el
+							break
+					islands[y][x] = el
+		return islands
+
+	def refine_islands(self, islands):
+		for y in range(self.height):
+			for x in range(self.width):
+				if islands[y][x] == 0:
+					continue
+				try:
+					for y_ in range(-1,2):
+						for x_ in range(-1,2):
+							if y_!=x_:
+								if islands[y+y_][x+x_]!=islands[y][x] and islands[y+y_][x+x_]!=0:
+									islands[y+y_][x+x_] = islands[y][x]
+				except:
+					continue
+		return islands
+				
+
+	def island_img(self, isl_mtrx):
+		img = Image.new( 'RGB', (self.width, self.height), (255,255,255,0))
+		pixels = img.load()
+
+		colors = {}
+		for y in range(img.size[1]):
+			for x in range(img.size[0]):
+				if isl_mtrx[y][x] not in list(colors.keys()):
+					colors[isl_mtrx[y][x]] = (random.randint(0,255),random.randint(0,255),random.randint(0,255))
+
+		for y in range(img.size[1]):
+			for x in range(img.size[0]):
+				pixels[x,y] = colors[isl_mtrx[y][x]]
+		return img
+				
+	def return_complete_world_image(self, old_effect=True):
+		return self.mark_civs_on_map(self.draw_borders_on(self.create_heightmap_image()))
+
+	# --- COLORAZIONI ---
+
+	def height_color(self, height):
+		''' Colorazioni per le diverse altitudini '''
+		if height < self.sea_lvl:
+			c = (int(height*200),int(height*200),255)					
+		elif height < self.beach_lvl:
+			c = (255,255,0)					
+		elif height < self.plains_lvl:
+			c = (int(maprange(height,0.4,0.6,255,0)),255,0)					
+		elif height < self.hills_lvl:
+			c = (128,128,128)					
+		else:
+			c = (int(height*300),int(height*300),int(height*300))
+		return c
+
+	def height_color_old_effect(self, height):
+		''' Colorazioni per le diverse altitudini - effetto antico '''
+		if height < self.sea_lvl:
+			c = (211-int(height*100),194-int(height*100),170-int(height*100))
+					
+		else:
+			c = (int(maprange(height,0.4,1,191,255)),
+				int(maprange(height,0.4,1,174,255)),
+				int(maprange(height,0.4,1,150,255)))
+		return c
+
+	def biome_color(self, biome, temperature=True):
+		b = biome
+		if "mare" in b:
+			col = (64,64,255)
+		elif "spiaggia" in b:
+			col = (255,255,0)
+		elif "montagna" in b:
+			col = (255,255,255)
+		elif "deserto" in b or "steppa" in b:
+			col = (200,200,64)
+		elif "bosco" in b:
+			col = (0,128,0)
+		elif "prateria" in b:
+			col = (0,255,0)
+		elif "taiga" in b:
+			col = (40,150,200)
+		elif "foresta" in b:
+			col = (30,80,30)
+		elif "palude" in b:
+			col = (70,60,60)
+		else:
+			col = (0,0,0)
+		if temperature:
+			if "congelata" in b:
+				c = blend_colors(col, (32,32,200))
+			elif "fredda" in b:
+				c = blend_colors(col, (128,128,255))
+			if "temperata" in b:
+				c = col
+			elif "calda" in b:
+				c = blend_colors(col, (255,128,129))
+			elif "bollente" in b:
+				c = blend_colors(col, (200,32,32))
+			return c
+		else:
+			return col
 
 	def save_images(self):
 		''' Salva tutte le immagini del mondo '''
-		self.img.save("./output/terrain.jpg")
-		#self.create_tempmap_image().save("./output/temperature.jpg")
-		#self.create_rainmap_image().save("./output/rainfall.jpg")
-		#self.blend_height_temp(self.img, self.create_rainmap_image()).save("./output/blend.jpg")
+		self.height_img.save("./output/terrain.jpg")
 		
 	def show_image(self):
 		''' Mostra l'immagine del territorio salvata '''
-		#self.create_tempmap_image().show()
-		self.img.show()
 		#self.create_moisturemap_image().show()
+		#self.create_biomemap_image().show()
+		#Image.blend(self.biome_img, self.create_biomemap_image(True), 0.75).show()
 
-		all_biomes = (self.biomemap[y][x] for y in range(self.height) for x in range(self.width))
-		print(collections.Counter(all_biomes))
+		#all_biomes = (self.biomemap[y][x] for y in range(self.height) for x in range(self.width))
+		#	print(collections.Counter(all_biomes))
 
-		self.create_biomemap_image().show()
-		self.blend_height_temp(self.create_biomemap_image(), self.create_biomemap_image(True)).show()
-		#self.create_biomes_image().show()
-		#self.create_borders_image().show()
+		self.mark_civs_on_map(self.draw_borders_on(self.height_img)).show()
+		self.find_collisions()
+		self.island_img(self.refine_islands(self.create_islands_matrix())).show()
 
 
 
@@ -240,30 +361,45 @@ class World():
 		''' Procedura per aggiungere civiltà al mondo.
 		Prima le si aggiunge al dizionario delle civiltà;
 		poi le si marca sulla cartina del territorio '''
+		#non toccare le seguenti due righe, vanno bene così fidati
 		civ.x, civ.y = self.place_civ()
 		self.civs[civ] = civ.x, civ.y
-		self.mark_civ_on_map(civ)
 		civ.biome = self.biomemap[civ.y][civ.x]
+		civ.territori = self.return_civ_territories(civ)
+		
 
 	def place_civ(self):
 		''' Ritorna una locazione non marina per l'insediamento della civ. '''
 		while True:
 			x, y = random.randint(0, self.width-1), random.randint(0, self.height-1)
-			if self.heightmap[y][x] >=self.sea_lvl:
+			
+			# fa in modo di non mettere civilta troppo vicine tra loro
+			for civ in self.civs:
+				if distance(civ.x, civ.y, x, y) > 40:
+					continue
+					
+			# non permette civiltà nel mare
+			if self.heightmap[y][x] >= self.sea_lvl:
 				return x, y
 				
-	def mark_civ_on_map(self, civ_obj, r=10):
-		''' Segnala su self.img la posizione delle cività. Da invocare ogni volta
-		che self.img viene per qualche motivo ricreata! '''
-		x = civ_obj.x
-		y = civ_obj.y
-		name = civ_obj.nome
-		draw = ImageDraw.Draw(self.img)
-		draw.ellipse((x-r, y-r, x+r, y+r), fill = 'red', outline ='white')
-		draw.ellipse((x-r/5, y-r/5, x+r/5, y+r/5), fill = 'white', outline ='white')
+	def mark_civs_on_map(self, img, r=5):
+		''' Segnala su self.height_img la posizione delle cività. Da invocare ogni volta
+		che self.height_img viene per qualche motivo ricreata! '''
+		draw = ImageDraw.ImageDraw(img, 'RGBA')
+		
+		for civ in self.civs:
+			x = civ.x
+			y = civ.y
+			name = civ.nome
+			p = civ.population
+			
+			draw.ellipse((x-r, y-r, x+r, y+r), fill = 'red', outline ='white')
+			draw.ellipse((x-r/5, y-r/5, x+r/5, y+r/5), fill = 'white', outline ='white')
+			draw.ellipse((x-p/2, y-p/2, x+p/2, y+p/2), fill = (random.randint(0,255),random.randint(0,255),random.randint(0,255),64))
+			font = ImageFont.truetype("arial.ttf",15)
+			draw.text((x,y+r), name, (0,0,0), font=font)
 
-		font = ImageFont.truetype("arial.ttf",15)
-		draw.text((x,y+r), name + " " + str(x) + "," + str(y), (0,0,0), font=font)
+		return img
 
 	def nearest_civ_distance(self):
 		''' Per ogni civiltà civ1, trova la civiltà civ2 più vicina e la salva
@@ -276,3 +412,47 @@ class World():
 					if d < min:
 						min, civ = d, civ2
 			civ1.nearest = (min, str(civ))
+
+	def distance_to_water(self, civ):
+		for radius in range(400):
+			neigh = ( (civ.x+1, civ.y), (civ.x-1,civ.y), (civ.x, civ.y+1), (civ.x, civ.y-1) )
+			for n in neigh:
+				try:
+					if self.heightmap[radius+n[1]][radius+n[0]] <= self.sea_lvl:
+						civ.sea_distance = radius
+						return
+				except:
+					pass
+
+	def generic_nearest_water(self, x0, y0):
+		for radius in range(400):
+			neigh = ( (x0+1, y0), (x0-1,y0), (x0, y0+1), (x0, y0-1) )
+			for n in neigh:
+				try:
+					if self.heightmap[radius+n[1]][radius+n[0]] <= self.sea_lvl:
+						return radius+n[1], radius+n[0]
+				except:
+					pass
+					
+	def distances_water(self):
+		for civ in self.civs:
+			self.distance_to_water(civ)
+
+	def return_civ_territories(self, civ):
+		''' Ritorna un insieme di tutte le coordinate (x,y) sotto il controllo
+		di una cività civ. '''
+		coordinates_set = set()
+		for x in range(civ.x-int(civ.population/2),civ.x+int(civ.population/2)):
+			for y in range(civ.y-int(civ.population/2),civ.y+int(civ.population/2)):
+				if (x-civ.x)**2+(y-civ.y)**2 < (civ.population**2)/4:
+					coordinates_set.add((x,y))
+		return coordinates_set
+
+	def find_collisions(self):
+		''' STAMPA (per ora) i territori di due civiltà che si sovrappongono '''
+		for civ1 in self.civs:
+			for civ2 in self.civs:
+				if civ1!=civ2:
+					if not civ1.territori.isdisjoint(civ2.territori):
+						print("Territori contesi", civ1.nome, civ2.nome, ":")
+						print(civ1.territori.intersection(civ2.territori))

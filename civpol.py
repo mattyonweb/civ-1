@@ -98,4 +98,4 @@ class CivPol():
 				s += str(c) + "\n\t"
 			return s
 		else:
-			return "-"
+			return ""

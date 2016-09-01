@@ -1,18 +1,20 @@
 import engine, random, utils
-import civpol, civrel
+import civpol, civrel, civeco
 
 class Civilta():
 	civs = list()
 	
 	def __init__(self, world, debug=False):
 		self.debug = debug
-		
+
 		self.x = 0
 		self.y = 0
 
+		#lingua e nome della cività
 		self.lang = engine.Language()
 		self.nome = self.lang.generate_word()
-		
+
+		#citizens è la lista di tutti i cittadini_obj
 		self.population = random.randint(40, 60)
 		self.citizens = self.create_citizens()
 
@@ -24,9 +26,14 @@ class Civilta():
 		self.mayor, self.governo = self.politics.return_organi_costituzionali()
 
 		self.biome = ""
-		self.nearest = ()
+		self.nearest = () #nearest_city - distance o il contrario
+		self.sea_distance = 500
+		self.territori = None
+		
 		if not self.debug:
 			world.add_new_civ(self)
+
+		self.economia = civeco.CivEco(self)
 		
 		Civilta.civs.append(self)
 
@@ -37,6 +44,7 @@ class Civilta():
 		print(self.return_base_informations())
 		print(self.religione.return_informations())
 		print(self.politics.return_informations())
+		print(self.economia.return_informations())
 
 	def return_base_informations(self):
 		s = "Nome: " + self.nome
@@ -44,7 +52,8 @@ class Civilta():
 		if not self.debug:
 			s += "\nCiviltà più vicina: " + str(self.nearest) 
 		s += "\nPopolazione: " + str(self.population)
-		s += "\nBioma: " + self.resume_biome()
+		s += "\nBioma: " + self.biome
+		s += "\nDistanza dall'acqua: " + str(self.sea_distance)
 		s += "\nConvinzione: " + str(self.convinzione)
 		return s
 		
@@ -58,9 +67,6 @@ class Civilta():
 	def create_citizens(self):
 		''' Crea e salva tutti i cittadini. '''
 		return [Citizen(self) for _ in range(self.population)]
-
-	def resume_biome(self):
-		return self.biome         
 
 
 class Citizen:
