@@ -12,36 +12,36 @@ class Civilta():
 
 		#lingua e nome della cività
 		self.lang = engine.Language()
-		self.nome = self.lang.generate_word()
+		self.nome = self.lang.generate_word().capitalize()
 
 		#citizens è la lista di tutti i cittadini_obj
 		self.population = random.randint(40, 60)
 		self.citizens = self.create_citizens()
 
 		self.religione = civrel.CivRel(self)
-		self.religion, self.gods, self.role, self.reward, self.adoration = self.religione.return_teogonia(resume=False)
 		self.convinzione = int( sum(c.convinzione for c in self.citizens) / len(self.citizens))
 		
 		self.politics = civpol.CivPol(self)
-		self.mayor, self.governo = self.politics.return_organi_costituzionali()
 
 		self.biome = ""
 		self.nearest = () #nearest_city - distance o il contrario
 		self.sea_distance = 500
 		self.territori = None
-		
+
+		Civilta.civs.append(self)
 		if not self.debug:
 			world.add_new_civ(self)
 
 		self.economia = civeco.CivEco(self)
-		
-		Civilta.civs.append(self)
+		self.territori_contesi = {} #la forma è: civiltà:lista-di-territorii
+		self.relazioni = {}
 
 	def __str__(self):
 		return self.nome
 
 	def print_informations(self):
 		print(self.return_base_informations())
+		print(self.lang.print_informations())
 		print(self.religione.return_informations())
 		print(self.politics.return_informations())
 		print(self.economia.return_informations())
@@ -50,11 +50,16 @@ class Civilta():
 		s = "Nome: " + self.nome
 		s += "\nCoordinate: " + str((self.x, self.y))
 		if not self.debug:
-			s += "\nCiviltà più vicina: " + str(self.nearest) 
+			s += "\nCiviltà più vicina: " + str(self.nearest)
 		s += "\nPopolazione: " + str(self.population)
 		s += "\nBioma: " + self.biome
 		s += "\nDistanza dall'acqua: " + str(self.sea_distance)
 		s += "\nConvinzione: " + str(self.convinzione)
+		#s += str(self.territori_contesi))
+		if self.relazioni:
+			s += "\nRelazioni con le altre civiltà:"
+			for civ in self.relazioni:
+				s += "\n\tciv.nome" + ": " + self.relazioni[civ]
 		return s
 		
 	@staticmethod

@@ -1,10 +1,10 @@
 from PIL import Image, ImageDraw, ImageFont
-import noise, random, math, civilization, collections
+import noise, random, math, civilization, collections, time
 from utils import *
 
 class World():
 	#2, 0.45, 0.4, 0.2
-	def __init__(self, x, y, civs_num=2, roughness=0.45, coldness=0.4, dryness=0.2):
+	def __init__(self, x, y, civs_num=2, roughness=0.45, isolationism=1.45, coldness=0.4, dryness=0.2, show_images=True, save_images=True):
 		self.width = x
 		self.height = y
 
@@ -24,7 +24,8 @@ class World():
 		
 		#attenzione: alla heightmap bisogna accedere così:
 		#self.heightmap[y][x] e non il contrario!!!
-		self.heightmap = self.create_matrix(6, 0.75, 2.01, exp=roughness, isolationism=1.45)
+		print("Generazione matrix")
+		self.heightmap = self.create_matrix(6, 0.75, 2, exp=roughness, isolationism=isolationism)
 		
 		#moisture: un grande exp significa più secchezza
 		self.moisturemap = self.create_matrix(6, 0.8, 2.2, 300, 300, exp=dryness)
@@ -35,15 +36,27 @@ class World():
 		self.biomemap = self.create_biome_matrix()
 
 		self.islandsmap = [[0 for x in range(self.width)] for y in range(self.height)]
-		self.identify_islands()
-		
+		self.generate_islandsmap()
+		print("Fine generazione matrix")
+
+		print("Inizio generazione vita")
 		self.civs = {} #dizionario civ_obj:(x,y)
 		for _ in range(civs_num):
 			self.add_new_civ(civilization.Civilta(self))
+		print("Fine generazione vita")
 		
 		self.height_img = self.return_complete_world_image()
 		self.temp_img = self.create_moisturemap_image()
 		self.biome_img = self.create_biomemap_image()
+
+		#salva in ogni civiltà la rispettiva civiltà più vicina
+		self.find_every_civs_nearest()
+		self.find_collisions()
+
+		if show_images:
+			self.show_images()
+		if save_images:
+			self.save_images()
 
 	# --- GENERATION ---
 	def create_matrix(self, octave=2, persistence=0.5, lacunarity=2.0,
@@ -142,6 +155,82 @@ class World():
 
 		return biomemap
 
+	def find_connected_regions_first_step(self):
+		''' Individua zone di terra connesse tra loro (continenti, isole, isolette
+		ecc...) e le identifica con un numero.
+		Questo è il primo passo per l'identificazione completa e pulita delle
+		terre. '''
+		seen = set() #le celle già viste. si può velocizzare togliendo quelle che non serviranno più!
+		counter = 0 #per gli ID
+
+		#vedi dopo
+		equivalences = {} 
+		
+		for x in range(self.width):
+			for y in range(self.height):
+				#crea una lista neigh che contiene le celle vicine a quella in questione
+				#che sono già state visitate
+				neigh = list()
+				for x_ in range(-1,2):
+					for y_ in range(-1,2):
+						if not (y_==0 and x_==0):
+							if (x+x_, y+y_) in seen:
+								neigh.append(self.islandsmap[y+y_][x+x_])
+
+				#print(neigh, self.heightmap[y][x], end=", ")
+				#se la cella selezionata è circondata da caselle vuote e ad essa
+				#corrisponde, in heightmap, un punto di terra emersa, dichiara una
+				#nuova isola
+				if neigh.count(0) == len(neigh) and self.heightmap[y][x] > self.sea_lvl:
+					counter += 1
+					self.islandsmap[y][x] = counter
+					
+				elif self.heightmap[y][x] <= self.sea_lvl:
+					self.islandsmap[y][x] = 0
+
+				#altrimenti, si assegna alla cella in questione l'id più piccolo tra
+				#quelli nel neigh. in caso di conflitti (ie quando ci sono più id isola
+				#nello stesso neigh) si assegna al dizionario equivalences un record:
+				#equivalences[id_grande] = id_minore
+				#per poter, in seguito, riunire tutto in un unica isola
+				else:
+					unique_values_neigh = set(neigh) #gli id presenti nel neigh
+					try:
+						unique_values_neigh.remove(0)
+					except:
+						pass
+						
+					if len(unique_values_neigh) > 1:
+						for _ in range(len(unique_values_neigh)-1):
+							equivalences[max(unique_values_neigh)] = min(unique_values_neigh)
+							unique_values_neigh.remove(max(unique_values_neigh))
+
+					self.islandsmap[y][x] = min(unique_values_neigh)
+				
+				seen.add((x,y))
+		return equivalences
+
+	def generate_islandsmap(self):
+		''' Rimuove le impurità lasciate dal primo step e completa il lavoro
+		unificando le isole che in realtà sono un'unica terra. '''
+		print("Identificazione isole - inizio")
+		start_time = time.time()
+		equivalences = self.find_connected_regions_first_step()
+		for x in range(self.width):
+			for y in range(self.height):
+				self.islandsmap[y][x] = self.find_root(equivalences, self.islandsmap[y][x])
+		print("Fine identificazione isole - tempo:", time.time() - start_time)
+
+	def find_root(self, d, value):
+		''' Risale alla radice delle references presenti in equivalences.
+		siccome eq. è della forma: {60:45, 45:32:, 32:4}, di fatto l'isola con
+		ID=60 è equivalente all'isola con ID=4. Questa funzione partendo dal
+		value 60 ritorna 4. '''
+		if value not in d.keys():
+			return value
+		else:
+			return self.find_root(d, d[value])
+
 	def return_temp_adj(self, value):
 		''' Ritorna l'aggettivo corrispondente alla temperatura value.
 		Da aggiustare perché non tiene conto dei maschili/femminili '''
@@ -204,7 +293,7 @@ class World():
 			for x in range(img.size[0]):
 				try:
 					#n sono i vicini, n0 la posizione attuale da analizzare
-					n = (self.biomemap[y+y_][x+x_] for y_ in range(-1, 2) for x_ in range(-1, 2) if x_!=y_)
+					n = set(self.biomemap[y+y_][x+x_] for y_ in range(-1, 2) for x_ in range(-1, 2) if x_!=y_)
 					n0 = self.biomemap[y][x]
 					for cell in n:
 						if ("mare" in cell and not "mare" in n0) or (not "mare" in cell and "mare" in n0):
@@ -214,91 +303,12 @@ class World():
 					continue
 
 		return img
-
-	def connected_regions(self):
-		matrix = [[0 for x in range(self.width)] for y in range(self.height)]
-		seen = set()
-		counter = 1
-		equivalences = {}
-		
-		for x in range(self.width):
-			for y in range(self.height):
-				#print(x,y,end=", ")
-				#crea una lista neigh che contiene le celle vicine a quella in questione
-				#che sono già state visitate
-				neigh = list()
-				for x_ in range(-1,2):
-					for y_ in range(-1,2):
-						if not (y_==0 and x_==0):
-							if (x+x_, y+y_) in seen:
-								neigh.append(matrix[y+y_][x+x_])
-
-				#print(neigh, self.heightmap[y][x], end=", ")
-				#se la cella selezionata è circondata da caselle vuote e ad essa
-				#corrisponde, in heightmap, un punto di terra emersa, dichiara una
-				#nuova isola
-				if neigh.count(0) == len(neigh) and self.heightmap[y][x] > self.sea_lvl:
-					counter += 1
-					matrix[y][x] = counter
-					
-				elif self.heightmap[y][x] <= self.sea_lvl:
-					matrix[y][x] = 0
-
-				#altrimenti, si assegna alla cella in questione l'id più piccolo tra
-				#quelli nel neigh. in caso di conflitti (ie quando ci sono più id isola
-				#nello stesso neigh) si assegna al dizionario equivalences un record:
-				#equivalences[id_grande] = id_minore
-				#per poter, in seguito, riunire tutto in un unica isola
-				else:
-					unique_values_neigh = set(neigh)
-					#print(unique_values_neigh)
-					try:
-						unique_values_neigh.remove(0)
-					except:
-						pass
-						
-					if len(unique_values_neigh) > 1:
-						for _ in range(len(unique_values_neigh)-1):
-							equivalences[max(unique_values_neigh)] = min(unique_values_neigh)
-							unique_values_neigh.remove(max(unique_values_neigh))
-
-					matrix[y][x] = min(unique_values_neigh)
-				
-
-				seen.add((x,y))
-
-		self.islandsmap = matrix
-		print(equivalences)
-		return equivalences
-
-	def identify_islands(self):
-		equivalences = self.connected_regions()
-		
-		for x in range(self.width):
-			for y in range(self.height):
-				'''while True:
-					if self.islandsmap[y][x] in list(equivalences.keys()):
-						self.islandsmap[y][x] = equivalences[self.islandsmap[y][x]]'''
-				self.islandsmap[y][x] = self.find_root(equivalences, self.islandsmap[y][x])
-					
-
-	def find_root(self, d, value):
-		if value not in d.keys():
-			return value
-		else:
-			return self.find_root(d, d[value])
 		
 	def island_img(self):
 		img = Image.new( 'RGB', (self.width, self.height), (255,255,255,0))
 		pixels = img.load()
-
-		#RIFARE CON SET (INSIEMI)
-		colors = {}
-		for y in range(img.size[1]):
-			for x in range(img.size[0]):
-				if self.islandsmap[y][x] not in list(colors.keys()):
-					colors[self.islandsmap[y][x]] = (random.randint(0,255),random.randint(0,255),random.randint(0,255))
-
+		colors = self.islands_colors()
+		
 		for y in range(img.size[1]):
 			for x in range(img.size[0]):
 				pixels[x,y] = colors[self.islandsmap[y][x]]
@@ -334,6 +344,14 @@ class World():
 				int(maprange(height,0.4,1,150,255)))
 		return c
 
+	def islands_colors(self):
+		''' Un colore per ogni isola '''
+		colors = {}
+		# set() elimina tutte le occorrenze multiple all'interno di una lista
+		for ids in set((self.islandsmap[y][x] for y in range(self.height) for x in range(self.width))):
+			colors[ids] = (random.randint(0,255),random.randint(0,255),random.randint(0,255))
+		return colors
+		
 	def biome_color(self, biome, temperature=True):
 		b = biome
 		if "mare" in b:
@@ -375,17 +393,9 @@ class World():
 		''' Salva tutte le immagini del mondo '''
 		self.height_img.save("./output/terrain.jpg")
 		
-	def show_image(self):
+	def show_images(self):
 		''' Mostra l'immagine del territorio salvata '''
-		#self.create_moisturemap_image().show()
-		#self.create_biomemap_image().show()
-		#Image.blend(self.biome_img, self.create_biomemap_image(True), 0.75).show()
-
-		#all_biomes = (self.biomemap[y][x] for y in range(self.height) for x in range(self.width))
-		#	print(collections.Counter(all_biomes))
-
-		self.mark_civs_on_map(self.draw_borders_on(self.height_img)).show()
-		self.find_collisions()
+		self.mark_civs_on_map(self.draw_borders_on(self.draw_roads_on(self.height_img))).show()
 		self.island_img().show()
 
 
@@ -436,42 +446,59 @@ class World():
 
 		return img
 
-	def nearest_civ_distance(self):
-		''' Per ogni civiltà civ1, trova la civiltà civ2 più vicina e la salva
-		in civ1.nearest ''' 
+	def draw_roads_on(self, img, connectness = 0.85):
+		''' Calcola e disegna le strade. '''
+		draw = ImageDraw.ImageDraw(img, 'RGBA')
+
+		#insieme delle civiltà già collegate (per evitare di fare strade da A a
+		#B e da B ad A, raddoppiando il tempo di esecuzione dello script
+		permutations = set()
+		#i = 0
+
+		print("Avvio calcolo e disegno delle strade")
 		for civ1 in self.civs:
-			min, civ = 1000, None
+			for civ2 in self.civs:
+				if civ1 != civ2:
+					if self.islandsmap[civ1.y][civ1.x] != self.islandsmap[civ2.y][civ2.x]:
+						continue
+					elif (civ1,civ2) in permutations or (civ2,civ1) in permutations:
+						continue
+					else:
+						if random.random() < 1-connectness:
+							print("Non-collegamento casuale tra", civ1.nome, civ2.nome)
+							permutations.add((civ1,civ2))
+							permutations.add((civ2,civ1))
+							continue
+						print("Inizio collegamento", civ1.nome, civ2.nome)
+						start_time = time.time()
+						permutations.add((civ1,civ2))
+						path_coord = find_path(self.heightmap, civ1.x,civ1.y,civ2.x,civ2.y, self.sea_lvl, self.mountain_lvl)
+						if path_coord is None:
+							print(civ1.nome, civ2.nome, "Le due civ sono sulla stessa isola ma utils/find_path non trova una strada fra le due. BUG")
+							continue
+						for coord in path_coord:
+							x = coord[0]
+							y = coord[1]
+							draw.point((x, y), fill = (112,110,89))
+						print("Collegate civiltà:", civ1.nome, civ2.nome, "--- tempo:", start_time-time.time())
+		print("Fine calcolo e disegno delle strade")
+		return img
+
+	def find_every_civs_nearest(self):
+		''' Per ogni civiltà civ1, trova la civiltà civ2 più vicina e la salva
+		in civ1.nearest '''
+		print("Calcolo delle città più vicine")
+		start = time.time()
+		
+		for civ1 in self.civs:
+			min, civ = math.inf, None
 			for civ2 in self.civs:
 				if civ1 != civ2:
 					d = distance(civ1.x, civ2.x, civ1.y, civ2.y)
 					if d < min:
 						min, civ = d, civ2
 			civ1.nearest = (min, str(civ))
-
-	def distance_to_water(self, civ):
-		for radius in range(400):
-			neigh = ( (civ.x+1, civ.y), (civ.x-1,civ.y), (civ.x, civ.y+1), (civ.x, civ.y-1) )
-			for n in neigh:
-				try:
-					if self.heightmap[radius+n[1]][radius+n[0]] <= self.sea_lvl:
-						civ.sea_distance = radius
-						return
-				except:
-					pass
-
-	def generic_nearest_water(self, x0, y0):
-		for radius in range(400):
-			neigh = ( (x0+1, y0), (x0-1,y0), (x0, y0+1), (x0, y0-1) )
-			for n in neigh:
-				try:
-					if self.heightmap[radius+n[1]][radius+n[0]] <= self.sea_lvl:
-						return radius+n[1], radius+n[0]
-				except:
-					pass
-					
-	def distances_water(self):
-		for civ in self.civs:
-			self.distance_to_water(civ)
+		print("Fine calcolo città vicine", time.time()-start)
 
 	def return_civ_territories(self, civ):
 		''' Ritorna un insieme di tutte le coordinate (x,y) sotto il controllo
@@ -487,7 +514,11 @@ class World():
 		''' STAMPA (per ora) i territori di due civiltà che si sovrappongono '''
 		for civ1 in self.civs:
 			for civ2 in self.civs:
-				if civ1!=civ2:
-					if not civ1.territori.isdisjoint(civ2.territori):
-						print("Territori contesi", civ1.nome, civ2.nome, ":")
-						print(civ1.territori.intersection(civ2.territori))
+				if civ1!=civ2 and not civ1.territori.isdisjoint(civ2.territori):
+					if civ1 not in civ2.territori_contesi.keys():
+						print("Territori contesi", civ1.nome, civ2.nome)
+						civ1.territori_contesi[civ2] = civ1.territori.intersection(civ2.territori)
+						civ1.relazioni[civ2] = "g"
+						civ2.territori_contesi[civ1] = civ1.territori.intersection(civ2.territori)
+						civ2.relazioni[civ1] = "g"
+

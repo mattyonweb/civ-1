@@ -15,54 +15,39 @@ class CivRel():
 	adoration = ["preghiere", "sacrifici", "costruzioni", "jiad", "nessuna",
 	"canti", "flagellamento", "riti sessuali", "proselitismo", "meditazione",
 	"giochi"]
+
+	gods_numerology = {
+	0 : "Ateismo",
+	1 : "Monoteismo",
+	2 : "Politeismo" }
 	
 	def __init__(self, civ):
 		self.civ = civ
-		kind, gods, role, reward, adoration  = self.create_religion()
-
-		self.religion = kind
-		self.gods_list = gods
-		self.gods_role = role
-		self.reward = reward
-		self.adoration = adoration
 		
-	def create_religion(self):
-		''' Crea una religione.
-		Ritorna (Tipo religione, lista_degli_Dei, riassunto) '''
-		kind, num, role, reward, adoration = self.choice_religion_property()
-		gods_list = [(self.civ).lang.generate_word().capitalize() for _ in range(num)]
+		self.num_of_gods = self.return_number_of_gods()
+		self.religion_definition = self.return_religion_definition()
+		self.gods_list = self.return_gods_list()
+		self.gods_role = self.coherent_choices_for(CivRel.gods_role)
+		self.reward = self.coherent_choices_for(CivRel.rel_ricompensa)
+		self.adoration = self.coherent_choices_for(CivRel.adoration)
 
-		return kind, gods_list, role, reward, adoration
+		self.libro_sacro = self.civ.lang.generate_book_title()
 
-	def choice_religion_property(self):
-		gods_numerology = {
-		"Monotesimo" : 1,
-		"Enoteismo" : random.randint(2, 8),
-		"Politeismo" : random.randint(3, 10) }
+	def return_number_of_gods(self):
+		return 0 if random.random() < 0.2 else random.randint(1,8)
+		
+	def return_gods_list(self):
+		''' Ritorna una lista di nomi di dei. '''
+		return [(self.civ).lang.generate_word().capitalize() for _ in range(self.num_of_gods)]
 
-		''' Se dio esiste, allora è tutto normale;
-		se dio non esiste, al 36% sarà una religione ma senza un dio,
-		al 64% sarà una civiltà atea. '''
-		god_exist = True if random.random() < 0.7 else False #se c'è uno o più dio
-		theism = True if not god_exist and random.random() < 0.26 else False #se si crede in una religione
-
-		# ["nessuno"] è una lista perché così posso fare ", ".join(lista)
-		if not god_exist and not theism:
-			return ("Ateismo", 0, ["nessuno"], ["nessuna"], ["nessuna"])
-			
-		elif not god_exist and theism:
-			return ("Outeismo", 0, ["nessuno"], ["nessuna"], ["nessuna"])
-			
+	def return_religion_definition(self):
+		''' Ritorna una stringa del tipo Monoteismo, Ateismo o Politeismo '''
+		if self.num_of_gods in CivRel.gods_numerology.keys():
+			return CivRel.gods_numerology[self.num_of_gods]
 		else:
-			rel = random.choice(list(gods_numerology.keys()))
-			gods_num = gods_numerology[rel]
-			gods_rol = self.exclusive_choices(CivRel.gods_role) 
-			ricompensa = self.exclusive_choices(CivRel.rel_ricompensa)
-			adorazione = self.exclusive_choices(CivRel.adoration)
-			return (rel, gods_num, gods_rol, ricompensa, adorazione)
-			
+			return "Politeismo"			
 
-	def exclusive_choices(self, tab):
+	def coherent_choices_for(self, tab):
 		''' Ritorna una o più scelte coerenti tra loro. Ad esempio: se in gods_role
 		c'è la scelta "nessuno", si possono fare tutte le altre scelte presenti
 		in gods_role ma se tra queste vi è anche "nessuno" allora vengono scartate. '''
@@ -77,13 +62,13 @@ class CivRel():
 				return choices
 				
 	def return_teogonia(self, resume=True):
-		return self.religion, self.gods_list, self.gods_role, self.reward, self.adoration
+		return self.religion_definition, self.gods_list, self.gods_role, self.reward, self.adoration
 
 	def return_informations(self):
-		s = "Religione: " + self.religion
-		if self.religion == "Ateismo":
+		s = "Religione: " + self.religion_definition
+		if self.religion_definition == "Ateismo":
 			return s
-			 
+		s += "\nLibro sacro: " + self.libro_sacro
 		s += "\nDio/Dei:"
 		if self.gods_list == []:
 			s += "-"
@@ -93,4 +78,4 @@ class CivRel():
 		s += "\nAzioni di Dio: " + ", ".join(self.gods_role)
 		s += "\nRicompensa religione: " + ", ".join(self.reward)
 		s += "\nMetodi di adorazione: " + ", ".join(self.adoration)
-		return s
+		return s	
