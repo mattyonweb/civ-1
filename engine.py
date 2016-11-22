@@ -1,4 +1,4 @@
-import random, analysis
+import random, analysis, itertools
 punctuation = ",.;:!?"
 #----
 
@@ -8,18 +8,26 @@ class Fonetica:
 	def __init__(self, lingua):
 		self.lingua = lingua
 		
-		consonants = "bcdfghjklmnpqrstvwxyzç"
+		consonants = "bcdfghjklmnpqrstvwxyzçñ"
 		vowels = "aeiou"
+		accented = "àòùèéü"
 		specials = "øƧƱŁßƋƑƏƲƸҖѦФЉДðñþæ"
 		
 		self.phonetics = {
 			"C" : random.sample(consonants, random.randint(3,7)),
 			"R" : random.sample(consonants, random.randint(2,5)),
 			"V" : random.sample(vowels, random.randint(2,5)),
-			"S" : random.sample(specials, random.randint(1,3)) }
+			"A" : random.sample(accented, random.randint(1,4))
+			#"S" : random.sample(specials, random.randint(1,3))
+			}
 			
 		self.freq = self.generate_freq()
-		self.types = ["CV", "RV", "CRV", "V", "VSV"]
+		
+		all_possible_types = []
+		for r in range(1, len(list(self.phonetics))+1):
+			for el in itertools.combinations(list(self.phonetics.keys()),r):
+				all_possible_types.append(el)
+		self.types = ["".join(random.choice(all_possible_types)) for _ in range(random.randint(2,5))]
 
 	def generate_freq(self, mode="cubic"):
 		''' Per ogni lettera, genera una frequenza che sta a indicare la
@@ -115,15 +123,16 @@ class Language:
 		return first_word.capitalize() + " " + second_word.capitalize()
 		
 	def print_informations(self):
-		print("Linguaggio:", self.nome_lingua)
-		print("Alfabeto:")
+		s = "Nome linguaggio: " + self.nome_lingua
+		s += "\nAlfabeto:"
 		for types in self.fonetica.phonetics:
-			print("\t", types, ":", "".join(self.fonetica.phonetics[types]))
-		print("Numero di sillabe più probabile per parola:", self.avg_num_of_syllabus)
-		print("Vocabolario di base:")
+			s += "\n\t" + str(types) + ":", str("".join(self.fonetica.phonetics[types]))
+		s += "\nNumero di sillabe più probabile per parola: " + self.avg_num_of_syllabus
+		s += "\nVocabolario di base:"
 		for word in self.vocabolario:
-			print("\t" + word.capitalize(), "---->", self.vocabolario[word].capitalize())
-		self.grammar.print_informations()		
+			s += "\n\t" + word.capitalize() + " ----> " + self.vocabolario[word].capitalize()
+		s += self.grammar.print_informations()
+		return s
 
 
 class Grammar():
@@ -176,5 +185,5 @@ class Grammar():
 		return radix
 
 	def print_informations(self):
-		print("Sintassi:", self.sintassi)
-		print("Tipologia linguistica: lingua " + self.tipologia_linguistica)
+		s = "\nSintassi: " + self.sintassi
+		return s + "\nTipologia linguistica: lingua " + self.tipologia_linguistica

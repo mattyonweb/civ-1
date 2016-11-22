@@ -45,5 +45,3 @@ class CivEco():
 
 	def grow(self):
 		pass
-	
-			

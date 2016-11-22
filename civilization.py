@@ -35,16 +35,29 @@ class Civilta():
 		self.economia = civeco.CivEco(self)
 		self.territori_contesi = {} #la forma è: civiltà:lista-di-territorii
 		self.relazioni = {}
+		self.save_informations()
 
 	def __str__(self):
 		return self.nome
 
 	def print_informations(self):
 		print(self.return_base_informations())
-		print(self.lang.print_informations())
+		#print(self.lang.print_informations())
 		print(self.religione.return_informations())
 		print(self.politics.return_informations())
 		print(self.economia.return_informations())
+
+	def save_informations(self):
+		import os
+		dire = os.path.dirname(__file__)
+		filename = os.path.join(dire, './output/civs/' + self.nome)
+		f = open(filename, "w")
+		f.write(self.return_base_informations()+"\n")
+		#f.write(self.lang.print_informations())
+		f.write(self.religione.return_informations()+"\n")
+		f.write(self.politics.return_informations()+"\n")
+		f.write(self.economia.return_informations()+"\n")
+		
 
 	def return_base_informations(self):
 		s = "Nome: " + self.nome
@@ -69,6 +82,13 @@ class Civilta():
 			civ.print_informations()
 			print("------------")
 
+	@staticmethod
+	def generate_html_links():
+		s = "<html><head><meta charset='UTF-8'></head><body>"
+		for civ in Civilta.civs:
+			s += "<a href='./civs/" + civ.nome + "'>" + civ.nome + "</a><br>"
+		return s + "</body></html>"
+		
 	def create_citizens(self):
 		''' Crea e salva tutti i cittadini. '''
 		return [Citizen(self) for _ in range(self.population)]

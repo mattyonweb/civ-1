@@ -1,4 +1,4 @@
-import math, random
+import math, random, os, shutil
 
 def bell_curve(x, a, b, c):
 	return a*math.e**((-(x-b)**2)/2*c**2)
@@ -109,3 +109,7 @@ def path_coordinates(matrix, xf, yf, x0, y0):
 		except:
 			return path
 	return path
+
+def remove_dir_content(relative_path="./civs"):
+	shutil.rmtree(relative_path)
+	os.makedirs(relative_path)

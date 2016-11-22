@@ -45,7 +45,7 @@ class World():
 			self.add_new_civ(civilization.Civilta(self))
 		print("Fine generazione vita")
 		
-		self.height_img = self.return_complete_world_image()
+		self.height_img = self.return_complete_world_image(old_effect=False, borders=True)
 		self.temp_img = self.create_moisturemap_image()
 		self.biome_img = self.create_biomemap_image()
 
@@ -250,7 +250,7 @@ class World():
 	l'immagine di base (img) deve essere in formato "RBG", e la maschera che ci
 	andrà sopra (draw) in "RGBA", sennò non funziona!!!!! '''
 	
-	def create_heightmap_image(self):
+	def create_heightmap_image(self, coloring_func):
 		''' Ritorna immagine del territorio (senza civiltà, quelle vanno aggiunte
 		direttamente a self.height_img) '''
 		img = Image.new('RGB', (self.width, self.height), (255,255,255,0))
@@ -259,7 +259,7 @@ class World():
 		for y in range(img.size[1]):
 			for x in range(img.size[0]):
 				height = self.heightmap[y][x]
-				pixels[x,y] = self.height_color_old_effect(height)			
+				pixels[x,y] = coloring_func(height)		
 		return img
 
 	def create_biomemap_image(self, temp_on=False):
@@ -314,12 +314,21 @@ class World():
 				pixels[x,y] = colors[self.islandsmap[y][x]]
 		return img
 				
-	def return_complete_world_image(self, old_effect=True):
-		return self.mark_civs_on_map(self.draw_borders_on(self.create_heightmap_image()))
+	def return_complete_world_image(self, old_effect=True, borders=False):
+		''' Ritorna l'immagine del mondo con tutte le chincagglierie possibili '''
+		if old_effect:
+			mappa = self.create_heightmap_image(self.height_color_old_effect)
+		else:
+			mappa = self.create_heightmap_image(self.height_color_pastel)
 
+		if borders:
+			return self.draw_roads_on(self.mark_civs_on_map(self.draw_borders_on(mappa)))
+		else:
+			return self.draw_roads_on(self.mark_civs_on_map(mappa))
+		
 	# --- COLORAZIONI ---
 
-	def height_color(self, height):
+	def height_color_standard(self, height):
 		''' Colorazioni per le diverse altitudini '''
 		if height < self.sea_lvl:
 			c = (int(height*200),int(height*200),255)					
@@ -343,6 +352,21 @@ class World():
 				int(maprange(height,0.4,1,174,255)),
 				int(maprange(height,0.4,1,150,255)))
 		return c
+
+	def height_color_pastel(self, height):
+		if height < self.sea_lvl:
+			c = (int(149/(1+self.sea_lvl-height)),int(148/(1+self.sea_lvl-height)),int(131/(1+self.sea_lvl-height)))				
+		elif height < self.beach_lvl:
+			c = (215,201,160)			
+		elif height < self.plains_lvl:
+			c = (204,187,136)			
+		elif height < self.hills_lvl:
+			c = (187,153,85)			
+		else:
+			c = (170,119,51)
+		return c
+
+	# --------
 
 	def islands_colors(self):
 		''' Un colore per ogni isola '''
@@ -395,8 +419,8 @@ class World():
 		
 	def show_images(self):
 		''' Mostra l'immagine del territorio salvata '''
-		self.mark_civs_on_map(self.draw_borders_on(self.draw_roads_on(self.height_img))).show()
-		self.island_img().show()
+		self.height_img.show()
+		#self.island_img().show()
 
 
 
@@ -420,7 +444,7 @@ class World():
 			
 			# fa in modo di non mettere civilta troppo vicine tra loro
 			for civ in self.civs:
-				if distance(civ.x, civ.y, x, y) > 40:
+				if distance(civ.x, civ.y, x, y) < 2500:
 					continue
 					
 			# non permette civiltà nel mare

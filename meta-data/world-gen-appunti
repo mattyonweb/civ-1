@@ -1,0 +1,104 @@
+ALCUNE CONSIDERAZIONI SUL WORDBUILDING
+
+1. Confini politici
+I confini strettamente intesi (ie: linee arbitrarie su una cartina che dividono "civiltà") non devono interessarmi molto. La generazione di una storia non presuppone già l'esistenza di civiltà ben sviluppate, anche geograficamente, ma piuttosto un numero più o meno grande di germi, puntini sulla mappa da cui poi le nazioni propriamente dette si espandono (creando così, loro stesse, dei confini).
+Da una parte, questo approccio richiede che la storia geopolitica debba partire esattamente da questi germi e poi espandersi, aumentando così la capacità computazionale richiesta per elaborare i confini; dall'altra, però, permette una storia più autentica, sincera, fatta di grandi guerre tra potenze in lotta per i confini, di civiltà scomparse, di rotte commerciali, di influenze linguistiche, di tradizioni, di organizzazioni sociali tra vicini. Certo, si potrebbe trovare un algoritmo che tracci linee arbitrarie in mezzo ad una mappa, ma quelle linee non avrebbero un significato storico!
+
+2. L'attenzione per i particolari
+Questo potrebbe essere qualcosa di complesso. Ogni civiltà ha delle tradizioni particolari, in particolare quando si vanno ad osservare le usanze tipiche degli scenari più locali (paesini, valli isolate, ecc). Questo, che si rispecchia ad esempio nei dialetti, deve ritrovarsi anche in altri settori della società: c'è una sagra particolare? un culto insolito? un gioco poco diffuso altrove? una specie animale in via d'estinzione? una deviazione genetica che rende i nasi delle persone particolarmente grandi? e così via.
+
+3. Il mistero
+Deve esserci sempre un po' di mistero. Un area che tutti vociferano essere popolata da mostruosi esseri (ecc...) o, a livello più locale, una casa abbandonata, un armadio mai aperto da generazioni, ecc
+
+4. I primi insediamenti
+Intuitivamente, le civiltà preistoriche scelsero luoghi favorevoli (per l'agricoltura, l'allevamento, la difesa ecc... insomma per la sedentarietà) dove stabilirsi: es. la mezzaluna fertile, il Nilo con il suo limo per gli egizi, ecc. Tuttavia diverse società, per quanto magari primitive o di minore importanza, sono venute fuori da ambienti altrimenti definibili come "estremi": parlo della groenlandia, di quella città in messico costruita a 4000 metri d'altezza, del tibet, del deserto del sahara ecc. Quando mi dedicherò alla wordgen, terrò conto di questo fatto: che l'estrema capacità di adattamento degli uomini sorprende (anche tenendo conto di questa affermazione), ma l'ambiente ostile rende difficile il mantenimento di una società "estrema" in caso di attacchi dall'esterno, ad esempio.
+
+5. I caratteri fondamentali di una civ (importante)
+	- Nome
+	- Popolazione
+	- Posizione nello spazio
+	- Lingua
+		(- Agglutinativa/isolativa ecc
+		 - Complessità d'apprendimento)
+	- Organizzazione statale
+	- Tasso di riproduzione (v.9)
+	- Adattamento all'ambiente circostante
+	- Religione
+	- Principali metodi di sostentamento (pesca, agricoltura ecc...)
+
+6. Nota sull'architettura del programma
+L'ideale sarebbe dare il minor numero di "indirizzamenti" possibile al programma per evolvere e lasciare che siano gli algoritmi genetici a trovare una soluzione migliore e non me stesso (il ché porta anche a dei risultati serendipidi, forse). Vedi anche il punto 2.
+	
+7. I caratteri fondamentali di una civ pt.2
+	- Relazioni con altre civ
+		- Se queste relazioni esistono
+		- Attitudine militare o pacifica o commerciale o (?)
+		- Influenze tra civiltà (es. lingua ecc)
+		- Scambi commerciali
+	- Miti e leggende
+	- Personalità locali e non
+		- Come mai queste persone emergono dalla massa?
+		- Quali gesta li hanno resi celebri? Raccontare
+		- Data e morte
+		- Sesso
+		- Dettagli sul corpo?
+Queste sono cose molto più complicate da elaborare e sono da riservare ad uno sviluppo più futuro del programma.
+
+8. Sulle razze
+L'unica razza che ho intenzione di mettere, ora, è quella umana. Non è esattamente un mondo fantasy questo, anche se potrebbe avere degli elementi simili.
+
+9. Il tempo
+Com' minchia facc' cu stu temp'?
+Per ora (non credo sarà definitivo) provo a fare un'interfaccia con cmd.Cmd in cui è l'utente a far passare un anno, con tutto ciò che ne comporta. Prima, però, devo definire *cosa* succeda al passare degli anni.
+
+10. Gli anni (d'oro del grande real)
+"anno" non è da intendersi come tradizionale anno di 365 giorni, più che altro come un'unità di tempo comoda per me che creo il gioco e non ben definita. (per ora)
+Cose che cambiano ogni anno:
+	- Popolazione (aumenta/diminuisce con le nascite, le epidemie, le guerre, le migrazioni ecc)
+	- Sviluppo della lingua (più accentuato se ci sono legami con altre civs, ad esempio)
+	- Allargamento dei confini (in base all'incremento della popolazione)
+	- Creazione di artefatti
+
+11. Divide et impera
+In GEB si parla della geometria e del fatto che alcuni termini assumono un significato passivo: nel mio gioco questa caratteristica deve emergere. Non ha senso dire che una civiltà ha un punteggio 1234.56 per quanto riguarda la forza militare: la forza militare deve essere il risultato di una serie di operazioni tra caratteristiche meno generiche della società, come ad esempio l'abilità nella lavorazione del ferro, la necessità di saper cacciare (a causa dell'ambiente sfavorevole?), ecc
+
+12. I fiumi
+Nel world gen mi mancano i fiumi.
+
+13. Religioneù
+
+Dio esiste:
+	- Deismo: credere che esiste un dio non antropomorfo e assoluto e trascendente che non tocca gli uomini.
+	- Panteismo: dio avvolge qualsiasi cosa nel nostro mondo, anche gli oggetti
+	- Monoteismo
+	- Enoteismo: formalmente esistono diversi dei ma solo uno viene privilegiato.
+	- Politeismo
+
+Dio non esiste:
+	- Animismo: credere l'esistenza di un anima o forza vitale in tutte le cose.
+	- Agnosticismo: non sapere se dio esiste o no ma farsene una ragione
+	- Ateismo: credere che dio non esiste
+
+14. Idea per definire alcuni punteggi dei linguaggi
+Si potrebbe un valore di comprensibilità di un linguaggio confrontandolo con tutti gli altri linguaggi del mondo: più è simile a un numero maggiore di altri linguaggi, più sarà comprensibile e, geneticamente, sopravviverà.
+
+15. Esempio di resume
+I Grnstrd sono una piccola (< 50 abitanti) civiltà stanziata nei pressi del lago Michigan. La religione più diffusa è quella [animista politeista ecc], e in particolare vengono venerati gli dei [lista dei] / Non vi sono religioni diffuse [æteismo]
+
+16. Come dare un nome a territori geografici
+	- Crea mappa di temperature e precipitazioni
+	- Dividi la mappa in biomi
+	- Per ogni zona chiusa composta solo da un bioma, genera un nome
+es: se il bioma è montagna-fredda-secca, allora si dovrà scegliere tra [la montagna|monte|picco][freddo/a|gelido/a|congelato/a] di [nome a caso]
+Il problema con questo approccio è che ci possono essere zone estremamente grandi che ricadono sotto un unico nome
+
+17. Biomi
+sea : sea
+bch : beach
+nth : il nulla delle montagne asciutte
+bar : il poco delle montagne asciutte
+ecc
+
+18. L'EVOLUZIONE BIOLOGICA DEI LINGUAGGI
+Un linguaggio non nasce dal nulla. (si ok i primi due-tre linguaggi devono per forza nascere dal nulla ma va bene in questo caso)
+Bisogna assegnare ad alcune aree geografiche linguaggi diversi di partenza, e poi farli evolvere in qualche maniera (casuale?)

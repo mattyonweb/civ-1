@@ -1,19 +1,24 @@
 import time
 s = time.time()
 
-import civilization
+import civilization, webpage, utils
 import world as word
 import sys
 #sys.stdout = open('file', 'w')
 
-height = 350
-width = 600
+height = 450
+width = 700
+
+utils.remove_dir_content("./output/civs")
 
 def show_world():
-	world = word.World(width, height, civs_num=11, roughness=0.45, isolationism=1.6, coldness=0.4, dryness=0.8)
-	civilization.Civilta.print_all_informations()
+	world = word.World(width, height, civs_num=25, roughness=0.45, isolationism=1.6, coldness=0.4, dryness=0.8)
+	#civilization.Civilta.print_all_informations()
 	return world
 
 show_world()
+
+webpage.web_wrapper()
+
 print(time.time() -s)
 
