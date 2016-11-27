@@ -32,6 +32,7 @@ class CivRel():
 		self.adoration = self.coherent_choices_for(CivRel.adoration)
 
 		self.libro_sacro = self.civ.lang.generate_book_title()
+		self.incipit_libro_sacro = self.civ.lang.generate_text(word_number=15, punct=True, suspension=True)
 
 	def return_number_of_gods(self):
 		return 0 if random.random() < 0.2 else random.randint(1,8)
@@ -69,6 +70,7 @@ class CivRel():
 		if self.religion_definition == "Ateismo":
 			return s
 		s += "\nLibro sacro: " + self.libro_sacro
+		s += "\nIncipit del libro sacro: '" + self.incipit_libro_sacro + "'"
 		s += "\nDio/Dei:"
 		if self.gods_list == []:
 			s += "-"

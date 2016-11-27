@@ -6,13 +6,13 @@ import world as word
 import sys
 #sys.stdout = open('file', 'w')
 
-height = 450
-width = 700
+height = 250
+width = 375
 
 utils.remove_dir_content("./output/civs")
 
 def show_world():
-	world = word.World(width, height, civs_num=25, roughness=0.45, isolationism=1.6, coldness=0.4, dryness=0.8)
+	world = word.World(width, height, civs_num=5, roughness=0.45, isolationism=1.6, coldness=0.4, dryness=0.8)
 	#civilization.Civilta.print_all_informations()
 	return world
 

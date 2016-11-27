@@ -102,3 +102,9 @@ ecc
 18. L'EVOLUZIONE BIOLOGICA DEI LINGUAGGI
 Un linguaggio non nasce dal nulla. (si ok i primi due-tre linguaggi devono per forza nascere dal nulla ma va bene in questo caso)
 Bisogna assegnare ad alcune aree geografiche linguaggi diversi di partenza, e poi farli evolvere in qualche maniera (casuale?)
+
+19. Il primo passo verso la generazione della storia: le famiglie
+In cento anni di solitudine si legge di Macondo, paesino minuscolo nell'entroterra sudamericano fondato da un numero molto ristretto di famiglie (tra cui quella di Josè Arcadio Buendia e Ursula). Una civiltà non viene fondata dai singoli, ma dalle famiglie per l'appunto: non per altro, ma se non c'è materiale con cui riprodursi potremmo avere di fronte il più grande eroe valoroso di tutti i tempi ma sarà costretto ad ammazzarsi di seghe, prima o poi. Quindi: più di tutto, alla base di ogni civiltà ci dev'essere un congruo numero di famiglie, i cui figli si riprodurranno dando luogo ad un aumento di popolazione e così via esponenzialmente.
+Probabilmente questa storia delle famiglie e dell'albero genealogico comporterà qualche lavoro con grafi e compagnia; vediamo cosa fare.
+
+

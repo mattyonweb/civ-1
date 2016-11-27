@@ -1,6 +1,5 @@
 import random, analysis, itertools
 punctuation = ",.;:!?"
-#----
 
 class Fonetica:
 	''' PER LA FONETICA E LA GENERAZIONE IGNORANTE DI PAROLE '''
@@ -99,14 +98,18 @@ class Language:
 			radix += self.fonetica.generate_syllabus()
 		return radix
 
-	def generate_text(self, word_number=100, insert_punct=False):
+	def generate_text(self, word_number=100, punct=False, suspension=False):
 		''' Genera un testo di parole insensate '''
 		t = ""
 		for words in range(word_number):
-			if random.random() < 0.1 and insert_punct:
+			if random.random() < 0.1 and punct:
 				t += self.generate_word() + random.choice(punctuation) + " "
 			else:
 				t += self.generate_word() + " "
+				
+		if suspension:
+			t += "[...]"
+			
 		return t
 
 	def generate_vocabolario(self):
@@ -122,12 +125,14 @@ class Language:
 		second_word = self.grammar.apply_declension(random.choice(list(self.vocabolario.values())), "genitivo", "singolare")
 		return first_word.capitalize() + " " + second_word.capitalize()
 		
-	def print_informations(self):
+	def return_informations(self):
 		s = "Nome linguaggio: " + self.nome_lingua
 		s += "\nAlfabeto:"
-		for types in self.fonetica.phonetics:
-			s += "\n\t" + str(types) + ":", str("".join(self.fonetica.phonetics[types]))
-		s += "\nNumero di sillabe più probabile per parola: " + self.avg_num_of_syllabus
+		for types in self.fonetica.phonetics.keys():
+			cazzo = [el for el in self.fonetica.phonetics[types]]
+			print("".join(cazzo), type(cazzo), type("".join(cazzo)), types)
+			s += "\n\t" + str(types) + ": " + "".join(cazzo)
+		s += "\nNumero di sillabe più probabile per parola: " + str(self.avg_num_of_syllabus)
 		s += "\nVocabolario di base:"
 		for word in self.vocabolario:
 			s += "\n\t" + word.capitalize() + " ----> " + self.vocabolario[word].capitalize()
@@ -175,9 +180,6 @@ class Grammar():
 
 	def apply_declension(self, radix, case, number):
 		''' Applica una declinazione ad una radice '''
-		print(self.lingua.nome_lingua)
-		print(self.tipologia_linguistica)
-		print(self.case_decl)
 		if self.tipologia_linguistica == "isolante":
 			return radix
 		radix += self.case_decl[case]

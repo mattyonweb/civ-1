@@ -15,8 +15,9 @@ class Civilta():
 		self.nome = self.lang.generate_word().capitalize()
 
 		#citizens è la lista di tutti i cittadini_obj
-		self.population = random.randint(40, 60)
+		self.genealogic_graph = {}
 		self.citizens = self.create_citizens()
+		self.population = len(self.citizens)
 
 		self.religione = civrel.CivRel(self)
 		self.convinzione = int( sum(c.convinzione for c in self.citizens) / len(self.citizens))
@@ -42,7 +43,7 @@ class Civilta():
 
 	def print_informations(self):
 		print(self.return_base_informations())
-		#print(self.lang.print_informations())
+		print(self.lang.return_informations())
 		print(self.religione.return_informations())
 		print(self.politics.return_informations())
 		print(self.economia.return_informations())
@@ -53,7 +54,7 @@ class Civilta():
 		filename = os.path.join(dire, './output/civs/' + self.nome)
 		f = open(filename, "w")
 		f.write(self.return_base_informations()+"\n")
-		#f.write(self.lang.print_informations())
+		f.write(self.lang.return_informations()+"\n")
 		f.write(self.religione.return_informations()+"\n")
 		f.write(self.politics.return_informations()+"\n")
 		f.write(self.economia.return_informations()+"\n")
@@ -73,7 +74,13 @@ class Civilta():
 			s += "\nRelazioni con le altre civiltà:"
 			for civ in self.relazioni:
 				s += "\n\tciv.nome" + ": " + self.relazioni[civ]
-		return s
+		s += "\nAlberi genealogici:"
+		for parents, sons in self.genealogic_graph.items():
+			if not sons:
+				continue
+			s += "\n" + " + ".join(str(parent) for parent in parents) + " = "
+			s += " , ".join(str(son) for son in sons)
+		return s + "\n"
 		
 	@staticmethod
 	def print_all_informations():
@@ -91,15 +98,27 @@ class Civilta():
 		
 	def create_citizens(self):
 		''' Crea e salva tutti i cittadini. '''
-		return [Citizen(self) for _ in range(self.population)]
-
+		#return [Citizen(self) for _ in range(self.population)]
+		all_citizens = []
+		for num_families in range(random.randint(10,30)):
+			male = Citizen(self, "m", min_age=18, max_age=60)
+			female = Citizen(self, "f", min_age=18, max_age=60)
+			sons = [Citizen(self, random.choice(("m", "f")), min_age=0, max_age=6) for _ in range(random.randint(0,3))]
+			
+			self.genealogic_graph[(male, female)] = sons
+			all_citizens.append(male)
+			all_citizens.append(female)
+			for son in sons:
+				all_citizens.append(son)
+		return all_citizens
+			
 
 class Citizen:
-	def __init__(self, civ):
+	def __init__(self, civ, sex, min_age=0, max_age=99):
 		self.civ = civ
 		self.nome = " ".join( (civ.lang.generate_word().capitalize() for _ in range(2)))
-		self.age = random.randint(0, 99)
-		self.sex = random.choice(["m","f"])
+		self.age = random.randint(min_age, max_age)
+		self.sex = sex
 		self.roles = []
 		self.convinzione = utils.random_montecarlo_bell(0.9, 0.5, 4.5) * 100
 
