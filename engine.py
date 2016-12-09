@@ -130,7 +130,6 @@ class Language:
 		s += "\nAlfabeto:"
 		for types in self.fonetica.phonetics.keys():
 			cazzo = [el for el in self.fonetica.phonetics[types]]
-			print("".join(cazzo), type(cazzo), type("".join(cazzo)), types)
 			s += "\n\t" + str(types) + ": " + "".join(cazzo)
 		s += "\nNumero di sillabe più probabile per parola: " + str(self.avg_num_of_syllabus)
 		s += "\nVocabolario di base:"

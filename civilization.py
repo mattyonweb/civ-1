@@ -1,4 +1,4 @@
-import engine, random, utils
+import engine, random, utils, db
 import civpol, civrel, civeco
 
 class Civilta():
@@ -98,7 +98,6 @@ class Civilta():
 		
 	def create_citizens(self):
 		''' Crea e salva tutti i cittadini. '''
-		#return [Citizen(self) for _ in range(self.population)]
 		all_citizens = []
 		for num_families in range(random.randint(10,30)):
 			male = Citizen(self, "m", min_age=18, max_age=60)
@@ -110,10 +109,14 @@ class Civilta():
 			all_citizens.append(female)
 			for son in sons:
 				all_citizens.append(son)
+
+		db.wrapper(Citizen.citizens_db_entries)
 		return all_citizens
-			
+	
 
 class Citizen:
+	citizens_db_entries = list()
+	
 	def __init__(self, civ, sex, min_age=0, max_age=99):
 		self.civ = civ
 		self.nome = " ".join( (civ.lang.generate_word().capitalize() for _ in range(2)))
@@ -121,9 +124,24 @@ class Citizen:
 		self.sex = sex
 		self.roles = []
 		self.convinzione = utils.random_montecarlo_bell(0.9, 0.5, 4.5) * 100
+		Citizen.citizens_db_entries.append(self.return_db_entry())
 
 	def __str__(self):
 		s = ", ".join((self.nome, self.sex, str(self.age)))
 		if len(self.roles) > 0:
 			s += " (" + ", ".join(self.roles) + ")"
 		return s
+
+	def return_db_entry(self):
+		if not self.roles:
+			role = " "
+		else:
+			if len(self.roles) == 1:
+				role = self.roles[0]
+			else:
+				role = " ,".join(self.roles)
+				
+		t = (random.randint(0,2**31-1), self.nome, self.age, self.sex, self.civ.nome)
+		return t
+
+		#CREATE TABLE Citizens(Id INT, Nome TEXT, Age INT, Sex TEXT, Civ TEXT);

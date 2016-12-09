@@ -12,4 +12,5 @@ to run this: simply download and run `meta.py`. there are no viruses, but of cou
 
 dependencies: `pillow`, any version of it will work i think
 
-
+FAQ: if you want a bigger world, or more civilizations or less islands 
+ecc. simply modify the file meta.py, it should be straightforward.
