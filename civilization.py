@@ -1,4 +1,4 @@
-import engine, random, utils, db
+import engine, random, utils
 import civpol, civrel, civeco
 
 class Civilta():
@@ -49,19 +49,29 @@ class Civilta():
 		print(self.economia.return_informations())
 
 	def save_informations(self):
+		''' Salva sul file omonimo alla civiltà tutte le informazioni '''
 		import os
 		dire = os.path.dirname(__file__)
-		filename = os.path.join(dire, './output/civs/' + self.nome)
+		filename = os.path.join(dire, './output/civs/' + self.nome + ".html")
 		f = open(filename, "w")
+		
+		f.write("""<html>
+			<head>
+			<meta charset='UTF-8'>
+			</head>
+			<body><h1><div align='center'>Log di: """ + self.nome + "</h1></div><pre>")
+			
 		f.write(self.return_base_informations()+"\n")
 		f.write(self.lang.return_informations()+"\n")
 		f.write(self.religione.return_informations()+"\n")
 		f.write(self.politics.return_informations()+"\n")
 		f.write(self.economia.return_informations()+"\n")
+		f.write("</pre></body></html>")
 		
 
 	def return_base_informations(self):
-		s = "Nome: " + self.nome
+		s = "----- INFORMAZIONI BASE -----\n"
+		s += "Nome: " + self.nome
 		s += "\nCoordinate: " + str((self.x, self.y))
 		if not self.debug:
 			s += "\nCiviltà più vicina: " + str(self.nearest)
@@ -80,7 +90,7 @@ class Civilta():
 				continue
 			s += "\n" + " + ".join(str(parent) for parent in parents) + " = "
 			s += " , ".join(str(son) for son in sons)
-		return s + "\n"
+		return s + "\n\n"
 		
 	@staticmethod
 	def print_all_informations():
@@ -93,7 +103,7 @@ class Civilta():
 	def generate_html_links():
 		s = "<html><head><meta charset='UTF-8'></head><body>"
 		for civ in Civilta.civs:
-			s += "<a href='./civs/" + civ.nome + "'>" + civ.nome + "</a><br>"
+			s += "<a href='./civs/" + civ.nome + ".html'>" + civ.nome + "</a><br>"
 		return s + "</body></html>"
 		
 	def create_citizens(self):
@@ -110,12 +120,10 @@ class Civilta():
 			for son in sons:
 				all_citizens.append(son)
 
-		db.wrapper(Citizen.citizens_db_entries)
 		return all_citizens
 	
 
 class Citizen:
-	citizens_db_entries = list()
 	
 	def __init__(self, civ, sex, min_age=0, max_age=99):
 		self.civ = civ
@@ -124,24 +132,9 @@ class Citizen:
 		self.sex = sex
 		self.roles = []
 		self.convinzione = utils.random_montecarlo_bell(0.9, 0.5, 4.5) * 100
-		Citizen.citizens_db_entries.append(self.return_db_entry())
 
 	def __str__(self):
 		s = ", ".join((self.nome, self.sex, str(self.age)))
 		if len(self.roles) > 0:
 			s += " (" + ", ".join(self.roles) + ")"
 		return s
-
-	def return_db_entry(self):
-		if not self.roles:
-			role = " "
-		else:
-			if len(self.roles) == 1:
-				role = self.roles[0]
-			else:
-				role = " ,".join(self.roles)
-				
-		t = (random.randint(0,2**31-1), self.nome, self.age, self.sex, self.civ.nome)
-		return t
-
-		#CREATE TABLE Citizens(Id INT, Nome TEXT, Age INT, Sex TEXT, Civ TEXT);

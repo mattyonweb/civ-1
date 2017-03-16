@@ -126,7 +126,8 @@ class Language:
 		return first_word.capitalize() + " " + second_word.capitalize()
 		
 	def return_informations(self):
-		s = "Nome linguaggio: " + self.nome_lingua
+		s = "----- LINGUAGGIO -----\n"
+		s += "Nome linguaggio: " + self.nome_lingua
 		s += "\nAlfabeto:"
 		for types in self.fonetica.phonetics.keys():
 			cazzo = [el for el in self.fonetica.phonetics[types]]
@@ -136,7 +137,7 @@ class Language:
 		for word in self.vocabolario:
 			s += "\n\t" + word.capitalize() + " ----> " + self.vocabolario[word].capitalize()
 		s += self.grammar.print_informations()
-		return s
+		return s + "\n\n"
 
 
 class Grammar():

@@ -107,4 +107,9 @@ Bisogna assegnare ad alcune aree geografiche linguaggi diversi di partenza, e po
 In cento anni di solitudine si legge di Macondo, paesino minuscolo nell'entroterra sudamericano fondato da un numero molto ristretto di famiglie (tra cui quella di Josè Arcadio Buendia e Ursula). Una civiltà non viene fondata dai singoli, ma dalle famiglie per l'appunto: non per altro, ma se non c'è materiale con cui riprodursi potremmo avere di fronte il più grande eroe valoroso di tutti i tempi ma sarà costretto ad ammazzarsi di seghe, prima o poi. Quindi: più di tutto, alla base di ogni civiltà ci dev'essere un congruo numero di famiglie, i cui figli si riprodurranno dando luogo ad un aumento di popolazione e così via esponenzialmente.
 Probabilmente questa storia delle famiglie e dell'albero genealogico comporterà qualche lavoro con grafi e compagnia; vediamo cosa fare.
 
+20. È l'economia che muove il mondo - il modello gravitazionale
+I commerci vanno implementati attraverso un modello gravitazionale - i.e.
+	F(1-->2) = G * (EXP1) * (IMP2) / D^2
+dove F è forza attrattiva del commercio da 1 a 2, G è una costante gravitazionale, EXP1 è il valore della percentuale del PIL1 dedicata all'esportazione, IMP2 idem ma per 2 e per le importazioni, D^2 è la distanza che li separa. Se delle nazioni sono molto vicine, è più probabile che sviluppino scambi commerciali più intensi.
+
 

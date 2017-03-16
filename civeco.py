@@ -38,10 +38,11 @@ class CivEco():
 		return sostentamento, stock_iniziale, produzione
 
 	def return_informations(self):
-		s = "Modi di sostentamento: " + ", ".join(self.sostentamento)
+		s = "----- ECONOMIA -----\n"
+		s += "Modi di sostentamento: " + ", ".join(self.sostentamento)
 		s += "\nCibo ora presente: " + str(self.cibo)
 		s += "\nProduttività cibo: " + str(self.prod_k)
-		return s
+		return s + "\n\n"
 
 	def grow(self):
 		pass

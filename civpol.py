@@ -87,9 +87,10 @@ class CivPol():
 		return self.mayor, self.governo
 
 	def return_informations(self):
-		s = "Forma di governo: " + self.governo + "\n"
+		s = "----- POLITICA -----\n"
+		s += "Forma di governo: " + self.governo + "\n"
 		s += self.beautify_governo()
-		return s
+		return s + "\n\n"
 
 	def beautify_governo(self):
 		''' Abbellire il resume per quanto riguarda la politica '''

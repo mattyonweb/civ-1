@@ -25,12 +25,15 @@ class World():
 		#attenzione: alla heightmap bisogna accedere così:
 		#self.heightmap[y][x] e non il contrario!!!
 		print("Generazione matrix")
+		print("altezza media: ", end="")
 		self.heightmap = self.create_matrix(6, 0.75, 2, exp=roughness, isolationism=isolationism)
 		
 		#moisture: un grande exp significa più secchezza
+		print("umidità media: ", end="")
 		self.moisturemap = self.create_matrix(6, 0.8, 2.2, 300, 300, exp=dryness)
 		
 		#temp: maggiore exp significa più freddezza
+		print("temperatura media: ", end="")
 		self.tempmap = self.create_matrix(6, 0.8, 2.2, exp=coldness)
 		
 		self.biomemap = self.create_biome_matrix()

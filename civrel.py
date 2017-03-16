@@ -66,9 +66,10 @@ class CivRel():
 		return self.religion_definition, self.gods_list, self.gods_role, self.reward, self.adoration
 
 	def return_informations(self):
-		s = "Religione: " + self.religion_definition
+		s = "----- TEOLOGIA -----\n"
+		s += "Religione: " + self.religion_definition
 		if self.religion_definition == "Ateismo":
-			return s
+			return s + "\n\n"
 		s += "\nLibro sacro: " + self.libro_sacro
 		s += "\nIncipit del libro sacro: '" + self.incipit_libro_sacro + "'"
 		s += "\nDio/Dei:"
@@ -80,4 +81,4 @@ class CivRel():
 		s += "\nAzioni di Dio: " + ", ".join(self.gods_role)
 		s += "\nRicompensa religione: " + ", ".join(self.reward)
 		s += "\nMetodi di adorazione: " + ", ".join(self.adoration)
-		return s	
+		return s + "\n\n"
